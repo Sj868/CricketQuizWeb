@@ -1,63 +1,20 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cricket Fever - World Cup Scores</title>
+  <title>Cricket Fever - Ultimate Fan Hub</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
     body {
       background-color: #f5f5f5;
     }
     .header-bg {
       background: linear-gradient(to right, #ff6f00, #388e3c);
     }
-    .worldcup-bg {
-      background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('background_images/cricket_action_shot.jpg');
-      background-size: cover;
-      background-position: center;
+
+    input[type="range"] {
+      accent-color: #ff6f00;
     }
   </style>
 </head>
@@ -68,31 +25,57 @@
       <h1 class="text-4xl font-extrabold tracking-wide">Cricket Fever</h1>
       <nav>
         <ul class="flex space-x-8">
-          <li><a href="index.html#home" class="nav-link hover:text-orange-300 transition duration-300">Home</a></li>
-          <li><a href="index.html#quiz" class="nav-link hover:text-orange-300 transition duration-300">Quiz</a></li>
-          <li><a href="index.html#about" class="nav-link hover:text-orange-300 transition duration-300">About</a></li>
-          <li><a href="worldcup.html" class="nav-link hover:text-orange-300 transition duration-300">World Cup Scores</a></li>
+          <li><a href="index.html" class="hover:text-orange-300 transition duration-300">Home</a></li>
+  
+          <li><a href="history.html" class="hover:text-orange-300 transition duration-300">History</a></li>
+          <li><a href="worldcup.html" class="hover:text-orange-300 transition duration-300">World Cups</a></li>
+          <li><a href="player_comparison.html" class="hover:text-orange-300 transition duration-300">Player Comparison</a></li>
+
         </ul>
       </nav>
     </div>
   </header>
-
-  <!-- World Cup Scores Section -->
   <section id="worldcup" class="worldcup-bg py-16">
     <div class="container mx-auto px-4">
       <h2 class="text-4xl font-bold text-center mb-10 text-green-800">Cricket World Cup Scores</h2>
-      <p class="text-xl text-center max-w-4xl mx-auto text-gray-800 mb-12">Explore the scores of every Cricket World Cup match, organized by year and match stage.</p>
+      <p class="text-xl text-center max-w-4xl mx-auto text-gray-800 mb-12">Explore the scores of every Cricket World Cup final and semi-finals, organized by year, with winners and standout performers from 1975 to 2023.</p>
 
       <!-- World Cup Year Sections -->
       <div class="space-y-12">
+        <!-- 2023 World Cup -->
+        <div class="bg-white bg-opacity-90 p-8 rounded-xl shadow-2xl">
+          <h3 class="text-2xl font-semibold text-orange-600 mb-4">2023 Cricket World Cup (India)</h3>
+          <div class="space-y-4">
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Final: Australia vs India</h4>
+              <p class="text-gray-600">India: 240/10 (50 overs) | Australia: 241/4 (43 overs)</p>
+              <p class="text-gray-600">Result: Australia won by 6 wickets</p>
+              <p class="text-gray-600">Man of the Match: Travis Head (137 runs)</p>
+              <p class="text-gray-600">Player of the Tournament: Virat Kohli (765 runs)</p>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Semi-Final 1: South Africa vs Australia</h4>
+              <p class="text-gray-600">South Africa: 212/10 (49.4 overs) | Australia: 215/7 (47.2 overs)</p>
+              <p class="text-gray-600">Result: Australia won by 3 wickets</p>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Semi-Final 2: India vs New Zealand</h4>
+              <p class="text-gray-600">India: 397/4 (50 overs) | New Zealand: 327/10 (48.5 overs)</p>
+              <p class="text-gray-600">Result: India won by 70 runs</p>
+            </div>
+          </div>
+        </div>
+
         <!-- 2019 World Cup -->
         <div class="bg-white bg-opacity-90 p-8 rounded-xl shadow-2xl">
-          <h3 class="text-2xl font-semibold text-orange-600 mb-4">2019 Cricket World Cup (England)</h3>
+          <h3 class="text-2xl font-semibold text-orange-600 mb-4">2019 Cricket World Cup (England/Wales)</h3>
           <div class="space-y-4">
             <div>
               <h4 class="text-lg font-semibold text-gray-800">Final: England vs New Zealand</h4>
               <p class="text-gray-600">England: 241/10 (50 overs) | New Zealand: 241/8 (50 overs)</p>
-              <p class="text-gray-600">Result: England won via Super Over</p>
+              <p class="text-gray-600">Result: England won via Super Over (boundary count)</p>
+              <p class="text-gray-600">Man of the Match: Ben Stokes (84* runs)</p>
+              <p class="text-gray-600">Player of the Tournament: Kane Williamson (578 runs)</p>
             </div>
             <div>
               <h4 class="text-lg font-semibold text-gray-800">Semi-Final 1: India vs New Zealand</h4>
@@ -100,9 +83,9 @@
               <p class="text-gray-600">Result: New Zealand won by 18 runs</p>
             </div>
             <div>
-              <h4 class="text-lg font-semibold text-gray-800">Semi-Final 2: South Africa vs England</h4>
-              <p class="text-gray-600">South Africa: 207/10 (46.4 overs) | England: 311/8 (50 overs)</p>
-              <p class="text-gray-600">Result: England won by 104 runs</p>
+              <h4 class="text-lg font-semibold text-gray-800">Semi-Final 2: Australia vs England</h4>
+              <p class="text-gray-600">Australia: 223/10 (49 overs) | England: 226/2 (32.1 overs)</p>
+              <p class="text-gray-600">Result: England won by 8 wickets</p>
             </div>
           </div>
         </div>
@@ -115,6 +98,8 @@
               <h4 class="text-lg font-semibold text-gray-800">Final: Australia vs New Zealand</h4>
               <p class="text-gray-600">Australia: 186/3 (33.1 overs) | New Zealand: 183/10 (45 overs)</p>
               <p class="text-gray-600">Result: Australia won by 7 wickets</p>
+              <p class="text-gray-600">Man of the Match: James Faulkner (3/36)</p>
+              <p class="text-gray-600">Player of the Tournament: Mitchell Starc (22 wickets)</p>
             </div>
             <div>
               <h4 class="text-lg font-semibold text-gray-800">Semi-Final 1: South Africa vs New Zealand</h4>
@@ -135,13 +120,15 @@
           <div class="space-y-4">
             <div>
               <h4 class="text-lg font-semibold text-gray-800">Final: India vs Sri Lanka</h4>
-              <p class="text-gray-600">India: 277/4 (48.2 overs) | Sri Lanka: 274/6 (50 overs)</p>
+              <p class="text-gray-600">Sri Lanka: 274/6 (50 overs) | India: 277/4 (48.2 overs)</p>
               <p class="text-gray-600">Result: India won by 6 wickets</p>
+              <p class="text-gray-600">Man of the Match: MS Dhoni (91* runs)</p>
+              <p class="text-gray-600">Player of the Tournament: Yuvraj Singh (362 runs, 15 wickets)</p>
             </div>
             <div>
-              <h4 class="text-lg font-semibold text-gray-800">Semi-Final 1: South Africa vs New Zealand</h4>
-              <p class="text-gray-600">South Africa: 172/10 (43.5 overs) | New Zealand: 221/8 (50 overs)</p>
-              <p class="text-gray-600">Result: New Zealand won by 49 runs</p>
+              <h4 class="text-lg font-semibold text-gray-800">Semi-Final 1: Sri Lanka vs New Zealand</h4>
+              <p class="text-gray-600">Sri Lanka: 217/6 (48.5 overs) | New Zealand: 217/10 (48.5 overs)</p>
+              <p class="text-gray-600">Result: Sri Lanka won by 5 wickets</p>
             </div>
             <div>
               <h4 class="text-lg font-semibold text-gray-800">Semi-Final 2: India vs Pakistan</h4>
@@ -150,37 +137,224 @@
             </div>
           </div>
         </div>
+
+        <!-- 2007 World Cup -->
+        <div class="bg-white bg-opacity-90 p-8 rounded-xl shadow-2xl">
+          <h3 class="text-2xl font-semibold text-orange-600 mb-4">2007 Cricket World Cup (West Indies)</h3>
+          <div class="space-y-4">
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Final: Australia vs Sri Lanka</h4>
+              <p class="text-gray-600">Australia: 281/4 (38 overs) | Sri Lanka: 215/8 (36 overs)</p>
+              <p class="text-gray-600">Result: Australia won by 53 runs (D/L method)</p>
+              <p class="text-gray-600">Man of the Match: Adam Gilchrist (149 runs)</p>
+              <p class="text-gray-600">Player of the Tournament: Glenn McGrath (26 wickets)</p>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Semi-Final 1: South Africa vs Australia</h4>
+              <p class="text-gray-600">South Africa: 149/10 (43.5 overs) | Australia: 153/3 (31.3 overs)</p>
+              <p class="text-gray-600">Result: Australia won by 7 wickets</p>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Semi-Final 2: Sri Lanka vs New Zealand</h4>
+              <p class="text-gray-600">Sri Lanka: 289/5 (50 overs) | New Zealand: 208/10 (48.2 overs)</p>
+              <p class="text-gray-600">Result: Sri Lanka won by 81 runs</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2003 World Cup -->
+        <div class="bg-white bg-opacity-90 p-8 rounded-xl shadow-2xl">
+          <h3 class="text-2xl font-semibold text-orange-600 mb-4">2003 Cricket World Cup (South Africa/Kenya/Zimbabwe)</h3>
+          <div class="space-y-4">
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Final: Australia vs India</h4>
+              <p class="text-gray-600">Australia: 359/2 (50 overs) | India: 234/10 (39.2 overs)</p>
+              <p class="text-gray-600">Result: Australia won by 125 runs</p>
+              <p class="text-gray-600">Man of the Match: Ricky Ponting (140* runs)</p>
+              <p class="text-gray-600">Player of the Tournament: Sachin Tendulkar (673 runs)</p>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Semi-Final 1: India vs Kenya</h4>
+              <p class="text-gray-600">India: 270/4 (50 overs) | Kenya: 179/10 (46.2 overs)</p>
+              <p class="text-gray-600">Result: India won by 91 runs</p>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Semi-Final 2: Australia vs Sri Lanka</h4>
+              <p class="text-gray-600">Australia: 212/7 (50 overs) | Sri Lanka: 123/7 (38.1 overs)</p>
+              <p class="text-gray-600">Result: Australia won by 48 runs (D/L method)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1999 World Cup -->
+        <div class="bg-white bg-opacity-90 p-8 rounded-xl shadow-2xl">
+          <h3 class="text-2xl font-semibold text-orange-600 mb-4">1999 Cricket World Cup (England/Wales)</h3>
+          <div class="space-y-4">
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Final: Australia vs Pakistan</h4>
+              <p class="text-gray-600">Pakistan: 132/10 (39 overs) | Australia: 133/2 (20.1 overs)</p>
+              <p class="text-gray-600">Result: Australia won by 8 wickets</p>
+              <p class="text-gray-600">Man of the Match: Shane Warne (4/33)</p>
+              <p class="text-gray-600">Player of the Tournament: Lance Klusener (281 runs, 17 wickets)</p>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Semi-Final 1: Australia vs South Africa</h4>
+              <p class="text-gray-600">South Africa: 213/10 (49.2 overs) | Australia: 213/10 (49.4 overs)</p>
+              <p class="text-gray-600">Result: Match tied (Australia advanced due to higher Super Six standing)</p>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Semi-Final 2: Pakistan vs New Zealand</h4>
+              <p class="text-gray-600">Pakistan: 242/1 (47.3 overs) | New Zealand: 241/7 (50 overs)</p>
+              <p class="text-gray-600">Result: Pakistan won by 9 wickets</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1996 World Cup -->
+        <div class="bg-white bg-opacity-90 p-8 rounded-xl shadow-2xl">
+          <h3 class="text-2xl font-semibold text-orange-600 mb-4">1996 Cricket World Cup (India/Pakistan/Sri Lanka)</h3>
+          <div class="space-y-4">
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Final: Sri Lanka vs Australia</h4>
+              <p class="text-gray-600">Australia: 241/7 (50 overs) | Sri Lanka: 245/3 (46.2 overs)</p>
+              <p class="text-gray-600">Result: Sri Lanka won by 7 wickets</p>
+              <p class="text-gray-600">Man of the Match: Aravinda de Silva (107* runs)</p>
+              <p class="text-gray-600">Player of the Tournament: Sanath Jayasuriya (221 runs, 7 wickets)</p>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Semi-Final 1: Sri Lanka vs India</h4>
+              <p class="text-gray-600">Sri Lanka: 251/8 (50 overs) | India: 120/8 (34.1 overs)</p>
+              <p class="text-gray-600">Result: Sri Lanka won by default (match abandoned due to crowd trouble)</p>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Semi-Final 2: Australia vs West Indies</h4>
+              <p class="text-gray-600">Australia: 207/8 (50 overs) | West Indies: 202/10 (49.3 overs)</p>
+              <p class="text-gray-600">Result: Australia won by 5 runs</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1992 World Cup -->
+        <div class="bg-white bg-opacity-90 p-8 rounded-xl shadow-2xl">
+          <h3 class="text-2xl font-semibold text-orange-600 mb-4">1992 Cricket World Cup (Australia/New Zealand)</h3>
+          <div class="space-y-4">
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Final: Pakistan vs England</h4>
+              <p class="text-gray-600">Pakistan: 249/6 (50 overs) | England: 227/10 (49.2 overs)</p>
+              <p class="text-gray-600">Result: Pakistan won by 22 runs</p>
+              <p class="text-gray-600">Man of the Match: Wasim Akram (33 runs, 3/49)</p>
+              <p class="text-gray-600">Player of the Tournament: Martin Crowe (456 runs)</p>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Semi-Final 1: Pakistan vs New Zealand</h4>
+              <p class="text-gray-600">Pakistan: 264/6 (49 overs) | New Zealand: 262/7 (50 overs)</p>
+              <p class="text-gray-600">Result: Pakistan won by 4 wickets</p>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Semi-Final 2: England vs South Africa</h4>
+              <p class="text-gray-600">South Africa: 252/6 (45 overs) | England: 232/6 (45 overs)</p>
+              <p class="text-gray-600">Result: England won by 19 runs (D/L method)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1987 World Cup -->
+        <div class="bg-white bg-opacity-90 p-8 rounded-xl shadow-2xl">
+          <h3 class="text-2xl font-semibold text-orange-600 mb-4">1987 Cricket World Cup (India/Pakistan)</h3>
+          <div class="space-y-4">
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Final: Australia vs England</h4>
+              <p class="text-gray-600">Australia: 253/5 (50 overs) | England: 246/8 (50 overs)</p>
+              <p class="text-gray-600">Result: Australia won by 7 runs</p>
+              <p class="text-gray-600">Man of the Match: David Boon (75 runs)</p>
+              <p class="text-gray-600">Player of the Tournament: Not awarded</p>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Semi-Final 1: Australia vs Pakistan</h4>
+              <p class="text-gray-600">Australia: 267/8 (50 overs) | Pakistan: 249/10 (49 overs)</p>
+              <p class="text-gray-600">Result: Australia won by 18 runs</p>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Semi-Final 2: England vs India</h4>
+              <p class="text-gray-600">England: 254/6 (50 overs) | India: 219/10 (45.3 overs)</p>
+              <p class="text-gray-600">Result: England won by 35 runs</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1983 World Cup -->
+        <div class="bg-white bg-opacity-90 p-8 rounded-xl shadow-2xl">
+          <h3 class="text-2xl font-semibold text-orange-600 mb-4">1983 Cricket World Cup (England)</h3>
+          <div class="space-y-4">
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Final: India vs West Indies</h4>
+              <p class="text-gray-600">India: 183/10 (54.4 overs) | West Indies: 140/10 (52 overs)</p>
+              <p class="text-gray-600">Result: India won by 43 runs</p>
+              <p class="text-gray-600">Man of the Match: Mohinder Amarnath (26 runs, 3/12)</p>
+              <p class="text-gray-600">Player of the Tournament: Not awarded</p>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Semi-Final 1: India vs England</h4>
+              <p class="text-gray-600">India: 217/4 (60 overs) | England: 213/10 (60 overs)</p>
+              <p class="text-gray-600">Result: India won by 6 wickets</p>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Semi-Final 2: West Indies vs Pakistan</h4>
+              <p class="text-gray-600">West Indies: 188/2 (48.4 overs) | Pakistan: 184/8 (60 overs)</p>
+              <p class="text-gray-600">Result: West Indies won by 8 wickets</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1979 World Cup -->
+        <div class="bg-white bg-opacity-90 p-8 rounded-xl shadow-2xl">
+          <h3 class="text-2xl font-semibold text-orange-600 mb-4">1979 Cricket World Cup (England)</h3>
+          <div class="space-y-4">
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Final: West Indies vs England</h4>
+              <p class="text-gray-600">West Indies: 286/9 (60 overs) | England: 194/10 (51 overs)</p>
+              <p class="text-gray-600">Result: West Indies won by 92 runs</p>
+              <p class="text-gray-600">Man of the Match: Viv Richards (138* runs)</p>
+              <p class="text-gray-600">Player of the Tournament: Not awarded</p>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Semi-Final 1: West Indies vs Pakistan</h4>
+              <p class="text-gray-600">West Indies: 293/6 (60 overs) | Pakistan: 250/10 (56.2 overs)</p>
+              <p class="text-gray-600">Result: West Indies won by 43 runs</p>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Semi-Final 2: England vs New Zealand</h4>
+              <p class="text-gray-600">England: 221/8 (60 overs) | New Zealand: 212/9 (60 overs)</p>
+              <p class="text-gray-600">Result: England won by 9 runs</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1975 World Cup -->
+        <div class="bg-white bg-opacity-90 p-8 rounded-xl shadow-2xl">
+          <h3 class="text-2xl font-semibold text-orange-600 mb-4">1975 Cricket World Cup (England)</h3>
+          <div class="space-y-4">
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Final: West Indies vs Australia</h4>
+              <p class="text-gray-600">West Indies: 291/8 (60 overs) | Australia: 274/10 (58.4 overs)</p>
+              <p class="text-gray-600">Result: West Indies won by 17 runs</p>
+              <p class="text-gray-600">Man of the Match: Clive Lloyd (102 runs)</p>
+              <p class="text-gray-600">Player of the Tournament: Not awarded</p>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Semi-Final 1: West Indies vs New Zealand</h4>
+              <p class="text-gray-600">West Indies: 158/5 (52.2 overs) | New Zealand: 157/10 (60 overs)</p>
+              <p class="text-gray-600">Result: West Indies won by 5 wickets</p>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">Semi-Final 2: Australia vs England</h4>
+              <p class="text-gray-600">Australia: 94/6 (36.2 overs) | England: 93/10 (36.2 overs)</p>
+              <p class="text-gray-600">Result: Australia won by 4 wickets</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-
-  <!-- Footer -->
-  <footer class="bg-green-800 text-white py-6">
-    <div class="container mx-auto px-4 text-center">
-      <p>© 2025 Cricket Fever. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <script>
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const href = this.getAttribute('href');
-
-        // Check if the link is for the current page (worldcup.html)
-        if (href.startsWith('#')) {
-          const targetId = href.substring(1);
-          const targetElement = document.getElementById(targetId);
-          if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-          }
-        } else {
-          // Navigate to index.html with hash
-          window.location.href = href;
-        }
-      });
-    });
-  </script>
 </body>
 </html>
