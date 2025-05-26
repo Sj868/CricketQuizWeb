@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cricket Fever - Player Comparison</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #f5f5f5;
+    }
+    .header-bg {
+      background: linear-gradient(to right, #ff6f00, #388e3c);
+    }
+    .comparison-bg {
+      background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('background_images/cricket_comparison.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    .highlight-better {
+      background-color: #ffeb3b;
+      font-weight: bold;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #388e3c;
+      color: white;
+    }
+  </style>
+</head>
+<body class="font-sans">
+  <!-- Header -->
+  <header class="header-bg text-white py-6 shadow-lg">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-4xl font-extrabold tracking-wide">Cricket Fever</h1>
+      <nav>
+        <ul class="flex space-x-8">
+          <li><a href="index.html#home" class="hover:text-orange-300 transition duration-300">Home</a></li>
+          <li><a href="index.html#quiz" class="hover:text-orange-300 transition duration-300">Quiz</a></li>
+          <li><a href="index.html#about" class="hover:text-orange-300 transition duration-300">About</a></li>
+          <li><a href="history.html" class="hover:text-orange-300 transition duration-300">History</a></li>
+          <li><a href="worldcup.html" class="hover:text-orange-300 transition duration-300">World Cups</a></li>
+          <li><a href="player_comparison.html" class="hover:text-orange-300 transition duration-300">Player Comparison</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Comparison Section -->
+  <section id="comparison" class="comparison-bg py-16 min-h-screen">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-10 text-green-800">Player Comparison</h2>
+      <p class="text-xl text-center mb-12 text-gray-800">Select two cricketers to compare their stats across various metrics.</p>
+      <div class="flex justify-center space-x-8 mb-12">
+        <select id="player1" class="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-800 w-64">
+          <option value="">Select Player 1</option>
+        </select>
+        <select id="player2" class="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-800 w-64">
+          <option value="">Select Player 2</option>
+        </select>
+      </div>
+      <div id="comparisonDisplay" class="max-w-6xl mx-auto">
+        <!-- Comparison Table -->
+        <div id="comparisonTable" class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800 hidden">
+          <table>
+            <thead>
+              <tr>
+                <th>Statistic</th>
+                <th id="p1Name">Player 1</th>
+                <th id="p2Name">Player 2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Batting Stance</td>
+                <td id="p1Stance"></td>
+                <td id="p2Stance"></td>
+              </tr>
+              <tr>
+                <td>Primary Role</td>
+                <td id="p1Role"></td>
+                <td id="p2Role"></td>
+              </tr>
+              <tr>
+                <td>Bowling Expertise</td>
+                <td id="p1BowlingType"></td>
+                <td id="p2BowlingType"></td>
+              </tr>
+              <tr>
+                <td>Test Runs</td>
+                <td id="p1TestRuns"></td>
+                <td id="p2TestRuns"></td>
+              </tr>
+              <tr>
+                <td>ODI Runs</td>
+                <td id="p1OdiRuns"></td>
+                <td id="p2OdiRuns"></td>
+              </tr>
+              <tr>
+                <td>T20 Runs</td>
+                <td id="p1T20Runs"></td>
+                <td id="p2T20Runs"></td>
+              </tr>
+              <tr>
+                <td>Test Batting Avg</td>
+                <td id="p1TestAvg"></td>
+                <td id="p2TestAvg"></td>
+              </tr>
+              <tr>
+                <td>ODI Batting Avg</td>
+                <td id="p1OdiAvg"></td>
+                <td id="p2OdiAvg"></td>
+              </tr>
+              <tr>
+                <td>T20 Batting Avg</td>
+                <td id="p1T20Avg"></td>
+                <td id="p2T20Avg"></td>
+              </tr>
+              <tr>
+                <td>Test Wickets</td>
+                <td id="p1TestWickets"></td>
+                <td id="p2TestWickets"></td>
+              </tr>
+              <tr>
+                <td>ODI Wickets</td>
+                <td id="p1OdiWickets"></td>
+                <td id="p2OdiWickets"></td>
+              </tr>
+              <tr>
+                <td>T20 Wickets</td>
+                <td id="p1T20Wickets"></td>
+                <td id="p2T20Wickets"></td>
+              </tr>
+              <tr>
+                <td>Test Economy Rate</td>
+                <td id="p1TestEconomy"></td>
+                <td id="p2TestEconomy"></td>
+              </tr>
+              <tr>
+                <td>ODI Economy Rate</td>
+                <td id="p1OdiEconomy"></td>
+                <td id="p2OdiEconomy"></td>
+              </tr>
+              <tr>
+                <td>T20 Economy Rate</td>
+                <td id="p1T20Economy"></td>
+                <td id="p2T20Economy"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-green-800 text-white py-6">
+    <div class="container mx-auto px-4 text-center">
+      <p>© 2025 Cricket Fever. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Player statistics data (expanded to 104 players)
+    const playerStats = {
+      "Virat Kohli": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm medium", 
+        testRuns: 8848, odiRuns: 13848, t20Runs: 4188, 
+        testAvg: 49.15, odiAvg: 58.67, t20Avg: 48.69, 
+        testWickets: 0, odiWickets: 5, t20Wickets: 8, 
+        testEconomy: 0, odiEconomy: 6.22, t20Economy: 7.50 
+      },
+      "Sachin Tendulkar": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm off-spin/leg-spin", 
+        testRuns: 15921, odiRuns: 18426, t20Runs: 10, 
+        testAvg: 53.78, odiAvg: 44.83, t20Avg: 10.00, 
+        testWickets: 46, odiWickets: 154, t20Wickets: 1, 
+        testEconomy: 3.52, odiEconomy: 5.10, t20Economy: 8.00 
+      },
+      "Sir Don Bradman": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm leg-spin", 
+        testRuns: 6996, odiRuns: 0, t20Runs: 0, 
+        testAvg: 99.94, odiAvg: 0, t20Avg: 0, 
+        testWickets: 2, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 3.00, odiEconomy: 0, t20Economy: 0 
+      },
+      "Shane Warne": { 
+        stance: "Right-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm leg-spin", 
+        testRuns: 3154, odiRuns: 1013, t20Runs: 0, 
+        testAvg: 17.32, odiAvg: 13.05, t20Avg: 0, 
+        testWickets: 708, odiWickets: 293, t20Wickets: 0, 
+        testEconomy: 2.65, odiEconomy: 4.25, t20Economy: 0 
+      },
+      "Jasprit Bumrah": { 
+        stance: "Right-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm fast", 
+        testRuns: 212, odiRuns: 91, t20Runs: 8, 
+        testAvg: 6.62, odiAvg: 5.72, t20Avg: 2.00, 
+        testWickets: 159, odiWickets: 149, t20Wickets: 89, 
+        testEconomy: 2.69, odiEconomy: 4.62, t20Economy: 6.62 
+      },
+      "Kagiso Rabada": { 
+        stance: "Left-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm fast", 
+        testRuns: 905, odiRuns: 360, t20Runs: 87, 
+        testAvg: 14.83, odiAvg: 12.00, t20Avg: 7.90, 
+        testWickets: 291, odiWickets: 157, t20Wickets: 58, 
+        testEconomy: 3.40, odiEconomy: 5.05, t20Economy: 8.20 
+      },
+      "Rohit Sharma": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 4137, odiRuns: 10709, t20Runs: 4231, 
+        testAvg: 46.48, odiAvg: 48.67, t20Avg: 31.95, 
+        testWickets: 2, odiWickets: 8, t20Wickets: 1, 
+        testEconomy: 3.80, odiEconomy: 5.21, t20Economy: 9.00 
+      },
+      "Steve Smith": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm leg-spin", 
+        testRuns: 9685, odiRuns: 5051, t20Runs: 1094, 
+        testAvg: 56.97, odiAvg: 43.10, t20Avg: 25.44, 
+        testWickets: 19, odiWickets: 28, t20Wickets: 0, 
+        testEconomy: 4.20, odiEconomy: 5.30, t20Economy: 0 
+      },
+      "Babar Azam": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 4113, odiRuns: 5729, t20Runs: 4145, 
+        testAvg: 45.70, odiAvg: 56.72, t20Avg: 41.03, 
+        testWickets: 2, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 4.50, odiEconomy: 0, t20Economy: 0 
+      },
+      "Muttiah Muralitharan": { 
+        stance: "Right-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 1261, odiRuns: 674, t20Runs: 0, 
+        testAvg: 11.67, odiAvg: 6.74, t20Avg: 0, 
+        testWickets: 800, odiWickets: 534, t20Wickets: 0, 
+        testEconomy: 2.47, odiEconomy: 3.93, t20Economy: 0 
+      },
+      "Sir Vivian Richards": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 8540, odiRuns: 6721, t20Runs: 0, 
+        testAvg: 50.23, odiAvg: 47.00, t20Avg: 0, 
+        testWickets: 32, odiWickets: 118, t20Wickets: 0, 
+        testEconomy: 2.91, odiEconomy: 4.53, t20Economy: 0 
+      },
+      "Brian Lara": { 
+        stance: "Left-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm leg-spin", 
+        testRuns: 11953, odiRuns: 10405, t20Runs: 0, 
+        testAvg: 52.88, odiAvg: 40.48, t20Avg: 0, 
+        testWickets: 0, odiWickets: 4, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 5.60, t20Economy: 0 
+      },
+      "Kumar Sangakkara": { 
+        stance: "Left-handed", 
+        role: "Batsman/Wicketkeeper", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 12400, odiRuns: 14234, t20Runs: 1382, 
+        testAvg: 57.40, odiAvg: 41.98, t20Avg: 31.40, 
+        testWickets: 0, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 0, t20Economy: 0 
+      },
+      "Sunil Gavaskar": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm medium", 
+        testRuns: 10122, odiRuns: 3092, t20Runs: 0, 
+        testAvg: 51.12, odiAvg: 35.13, t20Avg: 0, 
+        testWickets: 1, odiWickets: 1, t20Wickets: 0, 
+        testEconomy: 3.20, odiEconomy: 4.80, t20Economy: 0 
+      },
+      "Imran Khan": { 
+        stance: "Right-handed", 
+        role: "All-rounder", 
+        bowlingType: "Right-arm fast", 
+        testRuns: 3807, odiRuns: 3709, t20Runs: 0, 
+        testAvg: 37.69, odiAvg: 26.61, t20Avg: 0, 
+        testWickets: 362, odiWickets: 182, t20Wickets: 0, 
+        testEconomy: 2.54, odiEconomy: 3.89, t20Economy: 0 
+      },
+      "AB de Villiers": { 
+        stance: "Right-handed", 
+        role: "Batsman/Wicketkeeper", 
+        bowlingType: "Right-arm medium", 
+        testRuns: 8765, odiRuns: 9577, t20Runs: 1672, 
+        testAvg: 50.66, odiAvg: 53.50, t20Avg: 26.12, 
+        testWickets: 2, odiWickets: 7, t20Wickets: 0, 
+        testEconomy: 3.90, odiEconomy: 5.40, t20Economy: 0 
+      },
+      "MS Dhoni": { 
+        stance: "Right-handed", 
+        role: "Batsman/Wicketkeeper", 
+        bowlingType: "Right-arm medium", 
+        testRuns: 4876, odiRuns: 10773, t20Runs: 1617, 
+        testAvg: 38.09, odiAvg: 50.57, t20Avg: 37.60, 
+        testWickets: 0, odiWickets: 1, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 5.00, t20Economy: 0 
+      },
+      "Kapil Dev": { 
+        stance: "Right-handed", 
+        role: "All-rounder", 
+        bowlingType: "Right-arm fast-medium", 
+        testRuns: 5248, odiRuns: 3783, t20Runs: 0, 
+        testAvg: 31.05, odiAvg: 23.79, t20Avg: 0, 
+        testWickets: 434, odiWickets: 253, t20Wickets: 0, 
+        testEconomy: 2.78, odiEconomy: 3.71, t20Economy: 0 
+      },
+      "Jacques Kallis": { 
+        stance: "Right-handed", 
+        role: "All-rounder", 
+        bowlingType: "Right-arm fast-medium", 
+        testRuns: 13289, odiRuns: 11579, t20Runs: 666, 
+        testAvg: 55.37, odiAvg: 44.36, t20Avg: 28.95, 
+        testWickets: 292, odiWickets: 273, t20Wickets: 12, 
+        testEconomy: 2.96, odiEconomy: 4.84, t20Economy: 7.90 
+      },
+      "Ricky Ponting": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm medium", 
+        testRuns: 13378, odiRuns: 13704, t20Runs: 401, 
+        testAvg: 51.85, odiAvg: 42.03, t20Avg: 28.64, 
+        testWickets: 5, odiWickets: 3, t20Wickets: 0, 
+        testEconomy: 3.50, odiEconomy: 4.90, t20Economy: 0 
+      },
+      "Adam Gilchrist": { 
+        stance: "Left-handed", 
+        role: "Batsman/Wicketkeeper", 
+        bowlingType: "None", 
+        testRuns: 5570, odiRuns: 9619, t20Runs: 272, 
+        testAvg: 47.60, odiAvg: 35.89, t20Avg: 22.66, 
+        testWickets: 0, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 0, t20Economy: 0 
+      },
+      "Allan Border": { 
+        stance: "Left-handed", 
+        role: "Batsman", 
+        bowlingType: "Left-arm orthodox", 
+        testRuns: 11174, odiRuns: 6524, t20Runs: 0, 
+        testAvg: 50.56, odiAvg: 30.62, t20Avg: 0, 
+        testWickets: 39, odiWickets: 73, t20Wickets: 0, 
+        testEconomy: 2.80, odiEconomy: 4.20, t20Economy: 0 
+      },
+      "Virender Sehwag": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 8586, odiRuns: 8273, t20Runs: 394, 
+        testAvg: 49.34, odiAvg: 35.05, t20Avg: 21.88, 
+        testWickets: 40, odiWickets: 96, t20Wickets: 0, 
+        testEconomy: 3.30, odiEconomy: 5.26, t20Economy: 0 
+      },
+      "Malcolm Marshall": { 
+        stance: "Right-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm fast", 
+        testRuns: 1810, odiRuns: 955, t20Runs: 0, 
+        testAvg: 18.47, odiAvg: 14.69, t20Avg: 0, 
+        testWickets: 376, odiWickets: 157, t20Wickets: 0, 
+        testEconomy: 2.68, odiEconomy: 3.53, t20Economy: 0 
+      },
+      "Sir Ian Botham": { 
+        stance: "Right-handed", 
+        role: "All-rounder", 
+        bowlingType: "Right-arm fast-medium", 
+        testRuns: 5200, odiRuns: 2113, t20Runs: 0, 
+        testAvg: 33.54, odiAvg: 23.21, t20Avg: 0, 
+        testWickets: 383, odiWickets: 145, t20Wickets: 0, 
+        testEconomy: 2.99, odiEconomy: 4.05, t20Economy: 0 
+      },
+      "Chris Gayle": { 
+        stance: "Left-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 7214, odiRuns: 10480, t20Runs: 1899, 
+        testAvg: 42.18, odiAvg: 37.83, t20Avg: 27.52, 
+        testWickets: 73, odiWickets: 167, t20Wickets: 17, 
+        testEconomy: 3.10, odiEconomy: 4.90, t20Economy: 7.40 
+      },
+      "Shoaib Akhtar": { 
+        stance: "Right-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm fast", 
+        testRuns: 544, odiRuns: 394, t20Runs: 21, 
+        testAvg: 10.07, odiAvg: 8.95, t20Avg: 4.20, 
+        testWickets: 178, odiWickets: 247, t20Wickets: 19, 
+        testEconomy: 3.37, odiEconomy: 4.76, t20Economy: 8.10 
+      },
+      "Shahid Afridi": { 
+        stance: "Right-handed", 
+        role: "All-rounder", 
+        bowlingType: "Right-arm leg-spin", 
+        testRuns: 1716, odiRuns: 8064, t20Runs: 1416, 
+        testAvg: 36.51, odiAvg: 23.57, t20Avg: 18.15, 
+        testWickets: 48, odiWickets: 395, t20Wickets: 98, 
+        testEconomy: 3.40, odiEconomy: 4.62, t20Economy: 6.61 
+      },
+      "Sir Richard Hadlee": { 
+        stance: "Left-handed", 
+        role: "All-rounder", 
+        bowlingType: "Right-arm fast", 
+        testRuns: 3124, odiRuns: 1751, t20Runs: 0, 
+        testAvg: 27.16, odiAvg: 21.61, t20Avg: 0, 
+        testWickets: 431, odiWickets: 158, t20Wickets: 0, 
+        testEconomy: 2.63, odiEconomy: 3.30, t20Economy: 0 
+      },
+      "Matthew Hayden": { 
+        stance: "Left-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm medium", 
+        testRuns: 8625, odiRuns: 6133, t20Runs: 308, 
+        testAvg: 50.73, odiAvg: 43.80, t20Avg: 28.00, 
+        testWickets: 0, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 0, t20Economy: 0 
+      },
+      "Wally Hammond": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm medium", 
+        testRuns: 7249, odiRuns: 0, t20Runs: 0, 
+        testAvg: 58.45, odiAvg: 0, t20Avg: 0, 
+        testWickets: 83, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 2.50, odiEconomy: 0, t20Economy: 0 
+      },
+      "Sir Jack Hobbs": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm medium", 
+        testRuns: 5410, odiRuns: 0, t20Runs: 0, 
+        testAvg: 56.94, odiAvg: 0, t20Avg: 0, 
+        testWickets: 1, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 3.00, odiEconomy: 0, t20Economy: 0 
+      },
+      "Rahul Dravid": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 13288, odiRuns: 10889, t20Runs: 31, 
+        testAvg: 52.31, odiAvg: 39.16, t20Avg: 31.00, 
+        testWickets: 1, odiWickets: 4, t20Wickets: 0, 
+        testEconomy: 3.60, odiEconomy: 5.00, t20Economy: 0 
+      },
+      "Glenn McGrath": { 
+        stance: "Right-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm fast-medium", 
+        testRuns: 641, odiRuns: 115, t20Runs: 5, 
+        testAvg: 7.36, odiAvg: 5.23, t20Avg: 2.50, 
+        testWickets: 563, odiWickets: 381, t20Wickets: 5, 
+        testEconomy: 2.53, odiEconomy: 3.88, t20Economy: 7.80 
+      },
+      "Steve Waugh": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm medium", 
+        testRuns: 10927, odiRuns: 7569, t20Runs: 0, 
+        testAvg: 51.06, odiAvg: 32.90, t20Avg: 0, 
+        testWickets: 92, odiWickets: 195, t20Wickets: 0, 
+        testEconomy: 3.00, odiEconomy: 4.60, t20Economy: 0 
+      },
+      "Waqar Younis": { 
+        stance: "Right-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm fast", 
+        testRuns: 1010, odiRuns: 969, t20Runs: 0, 
+        testAvg: 10.20, odiAvg: 10.30, t20Avg: 0, 
+        testWickets: 373, odiWickets: 416, t20Wickets: 0, 
+        testEconomy: 3.25, odiEconomy: 4.68, t20Economy: 0 
+      },
+      "Curtly Ambrose": { 
+        stance: "Left-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm fast", 
+        testRuns: 1439, odiRuns: 639, t20Runs: 0, 
+        testAvg: 12.40, odiAvg: 12.78, t20Avg: 0, 
+        testWickets: 405, odiWickets: 225, t20Wickets: 0, 
+        testEconomy: 2.30, odiEconomy: 3.48, t20Economy: 0 
+      },
+      "Anil Kumble": { 
+        stance: "Right-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm leg-spin", 
+        testRuns: 2506, odiRuns: 938, t20Runs: 0, 
+        testAvg: 17.77, odiAvg: 10.53, t20Avg: 0, 
+        testWickets: 619, odiWickets: 337, t20Wickets: 0, 
+        testEconomy: 2.69, odiEconomy: 4.30, t20Economy: 0 
+      },
+      "Clive Lloyd": { 
+        stance: "Left-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm medium", 
+        testRuns: 7515, odiRuns: 1977, t20Runs: 0, 
+        testAvg: 46.67, odiAvg: 39.54, t20Avg: 0, 
+        testWickets: 10, odiWickets: 8, t20Wickets: 0, 
+        testEconomy: 2.90, odiEconomy: 4.10, t20Economy: 0 
+      },
+      "Greg Chappell": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm medium", 
+        testRuns: 7110, odiRuns: 2331, t20Runs: 0, 
+        testAvg: 53.86, odiAvg: 40.18, t20Avg: 0, 
+        testWickets: 47, odiWickets: 74, t20Wickets: 0, 
+        testEconomy: 2.75, odiEconomy: 4.00, t20Economy: 0 
+      },
+      "Dennis Lillee": { 
+        stance: "Right-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm fast", 
+        testRuns: 905, odiRuns: 240, t20Runs: 0, 
+        testAvg: 13.92, odiAvg: 8.00, t20Avg: 0, 
+        testWickets: 355, odiWickets: 103, t20Wickets: 0, 
+        testEconomy: 2.75, odiEconomy: 3.58, t20Economy: 0 
+      },
+      "Javed Miandad": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm leg-spin", 
+        testRuns: 8832, odiRuns: 7381, t20Runs: 0, 
+        testAvg: 52.57, odiAvg: 41.70, t20Avg: 0, 
+        testWickets: 17, odiWickets: 7, t20Wickets: 0, 
+        testEconomy: 3.20, odiEconomy: 4.50, t20Economy: 0 
+      },
+      "Michael Holding": { 
+        stance: "Right-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm fast", 
+        testRuns: 910, odiRuns: 282, t20Runs: 0, 
+        testAvg: 13.67, odiAvg: 9.40, t20Avg: 0, 
+        testWickets: 249, odiWickets: 142, t20Wickets: 0, 
+        testEconomy: 2.79, odiEconomy: 3.32, t20Economy: 0 
+      },
+      "Sir Alastair Cook": { 
+        stance: "Left-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 12472, odiRuns: 3204, t20Runs: 61, 
+        testAvg: 45.35, odiAvg: 36.40, t20Avg: 15.25, 
+        testWickets: 1, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 4.00, odiEconomy: 0, t20Economy: 0 
+      },
+      "James Anderson": { 
+        stance: "Left-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm fast-medium", 
+        testRuns: 1353, odiRuns: 273, t20Runs: 1, 
+        testAvg: 9.24, odiAvg: 7.37, t20Avg: 1.00, 
+        testWickets: 704, odiWickets: 269, t20Wickets: 18, 
+        testEconomy: 2.79, odiEconomy: 4.92, t20Economy: 7.95 
+      },
+      "Graeme Smith": { 
+        stance: "Left-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 9265, odiRuns: 6989, t20Runs: 982, 
+        testAvg: 48.25, odiAvg: 37.98, t20Avg: 31.67, 
+        testWickets: 8, odiWickets: 18, t20Wickets: 0, 
+        testEconomy: 3.50, odiEconomy: 5.00, t20Economy: 0 
+      },
+      "Inzamam-ul-Haq": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 8830, odiRuns: 11739, t20Runs: 11, 
+        testAvg: 49.60, odiAvg: 39.39, t20Avg: 11.00, 
+        testWickets: 0, odiWickets: 3, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 4.80, t20Economy: 0 
+      },
+      "Andy Roberts": { 
+        stance: "Right-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm fast", 
+        testRuns: 762, odiRuns: 231, t20Runs: 0, 
+        testAvg: 14.94, odiAvg: 10.50, t20Avg: 0, 
+        testWickets: 202, odiWickets: 87, t20Wickets: 0, 
+        testEconomy: 2.78, odiEconomy: 3.40, t20Economy: 0 
+      },
+      "Gordon Greenidge": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm medium", 
+        testRuns: 7558, odiRuns: 5134, t20Runs: 0, 
+        testAvg: 44.72, odiAvg: 45.03, t20Avg: 0, 
+        testWickets: 0, odiWickets: 1, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 4.00, t20Economy: 0 
+      },
+      "Desmond Haynes": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm medium", 
+        testRuns: 7487, odiRuns: 8648, t20Runs: 0, 
+        testAvg: 42.29, odiAvg: 41.37, t20Avg: 0, 
+        testWickets: 1, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 3.00, odiEconomy: 0, t20Economy: 0 
+      },
+      "Courtney Walsh": { 
+        stance: "Right-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm fast", 
+        testRuns: 936, odiRuns: 205, t20Runs: 0, 
+        testAvg: 7.54, odiAvg: 6.83, t20Avg: 0, 
+        testWickets: 519, odiWickets: 227, t20Wickets: 0, 
+        testEconomy: 2.53, odiEconomy: 3.83, t20Economy: 0 
+      },
+      "Bob Willis": { 
+        stance: "Right-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm fast", 
+        testRuns: 840, odiRuns: 83, t20Runs: 0, 
+        testAvg: 11.20, odiAvg: 5.53, t20Avg: 0, 
+        testWickets: 325, odiWickets: 80, t20Wickets: 0, 
+        testEconomy: 2.83, odiEconomy: 3.28, t20Economy: 0 
+      },
+      "Fred Trueman": { 
+        stance: "Right-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm fast", 
+        testRuns: 981, odiRuns: 0, t20Runs: 0, 
+        testAvg: 13.41, odiAvg: 0, t20Avg: 0, 
+        testWickets: 307, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 2.61, odiEconomy: 0, t20Economy: 0 
+      },
+      "Sir Len Hutton": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm leg-spin", 
+        testRuns: 6971, odiRuns: 0, t20Runs: 0, 
+        testAvg: 56.67, odiAvg: 0, t20Avg: 0, 
+        testWickets: 3, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 2.80, odiEconomy: 0, t20Economy: 0 
+      },
+      "Mark Waugh": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 8029, odiRuns: 8500, t20Runs: 55, 
+        testAvg: 41.81, odiAvg: 39.35, t20Avg: 27.50, 
+        testWickets: 59, odiWickets: 85, t20Wickets: 1, 
+        testEconomy: 3.40, odiEconomy: 4.80, t20Economy: 8.00 
+      },
+      "Ian Bell": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm medium", 
+        testRuns: 7727, odiRuns: 5416, t20Runs: 188, 
+        testAvg: 42.69, odiAvg: 37.87, t20Avg: 20.88, 
+        testWickets: 1, odiWickets: 6, t20Wickets: 0, 
+        testEconomy: 4.00, odiEconomy: 5.10, t20Economy: 0 
+      },
+      "VVS Laxman": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 8781, odiRuns: 2338, t20Runs: 0, 
+        testAvg: 45.97, odiAvg: 30.76, t20Avg: 0, 
+        testWickets: 2, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 3.50, odiEconomy: 0, t20Economy: 0 
+      },
+      "Zaheer Khan": { 
+        stance: "Right-handed", 
+        role: "Bowler", 
+        bowlingType: "Left-arm fast-medium", 
+        testRuns: 1211, odiRuns: 792, t20Runs: 13, 
+        testAvg: 11.96, odiAvg: 9.90, t20Avg: 3.25, 
+        testWickets: 311, odiWickets: 282, t20Wickets: 17, 
+        testEconomy: 3.27, odiEconomy: 4.93, t20Economy: 7.63 
+      },
+      "Saeed Anwar": { 
+        stance: "Left-handed", 
+        role: "Batsman", 
+        bowlingType: "Left-arm orthodox", 
+        testRuns: 4052, odiRuns: 8824, t20Runs: 0, 
+        testAvg: 45.52, odiAvg: 39.21, t20Avg: 0, 
+        testWickets: 0, odiWickets: 6, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 4.70, t20Economy: 0 
+      },
+      "Sourav Ganguly": { 
+        stance: "Left-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm medium", 
+        testRuns: 7212, odiRuns: 11363, t20Runs: 0, 
+        testAvg: 42.17, odiAvg: 41.02, t20Avg: 0, 
+        testWickets: 32, odiWickets: 100, t20Wickets: 0, 
+        testEconomy: 3.10, odiEconomy: 5.06, t20Economy: 0 
+      },
+      "Shivnarine Chanderpaul": { 
+        stance: "Left-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm leg-spin", 
+        testRuns: 11867, odiRuns: 8778, t20Runs: 343, 
+        testAvg: 51.37, odiAvg: 41.60, t20Avg: 20.17, 
+        testWickets: 9, odiWickets: 14, t20Wickets: 0, 
+        testEconomy: 3.20, odiEconomy: 4.90, t20Economy: 0 
+      },
+      "Mark Boucher": { 
+        stance: "Right-handed", 
+        role: "Batsman/Wicketkeeper", 
+        bowlingType: "None", 
+        testRuns: 5515, odiRuns: 4686, t20Runs: 268, 
+        testAvg: 30.30, odiAvg: 28.57, t20Avg: 16.75, 
+        testWickets: 1, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 3.00, odiEconomy: 0, t20Economy: 0 
+      },
+      "Sanath Jayasuriya": { 
+        stance: "Left-handed", 
+        role: "All-rounder", 
+        bowlingType: "Left-arm orthodox", 
+        testRuns: 6973, odiRuns: 13430, t20Runs: 629, 
+        testAvg: 40.07, odiAvg: 32.36, t20Avg: 23.29, 
+        testWickets: 98, odiWickets: 323, t20Wickets: 19, 
+        testEconomy: 3.15, odiEconomy: 4.78, t20Economy: 7.20 
+      },
+      "Mahela Jayawardene": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm medium", 
+        testRuns: 11814, odiRuns: 12650, t20Runs: 1493, 
+        testAvg: 49.84, odiAvg: 33.01, t20Avg: 31.10, 
+        testWickets: 6, odiWickets: 8, t20Wickets: 0, 
+        testEconomy: 3.40, odiEconomy: 5.00, t20Economy: 0 
+      },
+      "Aravinda de Silva": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 6361, odiRuns: 9284, t20Runs: 0, 
+        testAvg: 42.97, odiAvg: 34.90, t20Avg: 0, 
+        testWickets: 29, odiWickets: 106, t20Wickets: 0, 
+        testEconomy: 3.00, odiEconomy: 4.88, t20Economy: 0 
+      },
+      "Brendon McCullum": { 
+        stance: "Right-handed", 
+        role: "Batsman/Wicketkeeper", 
+        bowlingType: "Right-arm medium", 
+        testRuns: 6453, odiRuns: 6083, t20Runs: 2140, 
+        testAvg: 38.64, odiAvg: 30.41, t20Avg: 35.66, 
+        testWickets: 1, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 4.00, odiEconomy: 0, t20Economy: 0 
+      },
+      "Kane Williamson": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 8743, odiRuns: 6810, t20Runs: 2547, 
+        testAvg: 55.33, odiAvg: 47.30, t20Avg: 33.51, 
+        testWickets: 33, odiWickets: 37, t20Wickets: 6, 
+        testEconomy: 3.30, odiEconomy: 5.10, t20Economy: 7.90 
+      },
+      "Shakib Al Hasan": { 
+        stance: "Left-handed", 
+        role: "All-rounder", 
+        bowlingType: "Left-arm orthodox", 
+        testRuns: 4505, odiRuns: 7570, t20Runs: 2551, 
+        testAvg: 39.17, odiAvg: 37.29, t20Avg: 20.57, 
+        testWickets: 242, odiWickets: 317, t20Wickets: 149, 
+        testEconomy: 3.10, odiEconomy: 4.45, t20Economy: 6.80 
+      },
+      "Ben Stokes": { 
+        stance: "Left-handed", 
+        role: "All-rounder", 
+        bowlingType: "Right-arm fast-medium", 
+        testRuns: 6316, odiRuns: 3463, t20Runs: 690, 
+        testAvg: 35.48, odiAvg: 41.72, t20Avg: 21.56, 
+        testWickets: 197, odiWickets: 74, t20Wickets: 28, 
+        testEconomy: 3.35, odiEconomy: 5.42, t20Economy: 8.40 
+      },
+      "Joe Root": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 12027, odiRuns: 6522, t20Runs: 1077, 
+        testAvg: 50.32, odiAvg: 47.96, t20Avg: 35.90, 
+        testWickets: 69, odiWickets: 27, t20Wickets: 6, 
+        testEconomy: 3.40, odiEconomy: 5.20, t20Economy: 8.10 
+      },
+      "Pat Cummins": { 
+        stance: "Right-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm fast", 
+        testRuns: 1295, odiRuns: 513, t20Runs: 144, 
+        testAvg: 17.50, odiAvg: 12.82, t20Avg: 8.47, 
+        testWickets: 269, odiWickets: 141, t20Wickets: 57, 
+        testEconomy: 2.88, odiEconomy: 5.12, t20Economy: 7.37 
+      },
+      "Suryakumar Yadav": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 8, odiRuns: 773, t20Runs: 2141, 
+        testAvg: 8.00, odiAvg: 32.20, t20Avg: 43.69, 
+        testWickets: 0, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 0, t20Economy: 0 
+      },
+      "Shubman Gill": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 2000, odiRuns: 2271, t20Runs: 578, 
+        testAvg: 40.00, odiAvg: 59.76, t20Avg: 34.00, 
+        testWickets: 0, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 0, t20Economy: 0 
+      },
+      "Yashasvi Jaiswal": { 
+        stance: "Left-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm leg-spin", 
+        testRuns: 1500, odiRuns: 0, t20Runs: 723, 
+        testAvg: 41.67, odiAvg: 0, t20Avg: 36.15, 
+        testWickets: 0, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 0, t20Economy: 0 
+      },
+      "Heinrich Klaasen": { 
+        stance: "Right-handed", 
+        role: "Batsman/Wicketkeeper", 
+        bowlingType: "None", 
+        testRuns: 104, odiRuns: 2500, t20Runs: 718, 
+        testAvg: 26.00, odiAvg: 45.45, t20Avg: 37.78, 
+        testWickets: 0, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 0, t20Economy: 0 
+      },
+      "Daryl Mitchell": { 
+        stance: "Right-handed", 
+        role: "All-rounder", 
+        bowlingType: "Right-arm medium", 
+        testRuns: 1600, odiRuns: 1500, t20Runs: 1269, 
+        testAvg: 48.48, odiAvg: 37.50, t20Avg: 29.51, 
+        testWickets: 3, odiWickets: 0, t20Wickets: 8, 
+        testEconomy: 3.60, odiEconomy: 0, t20Economy: 7.80 
+      },
+      "Angelo Mathews": { 
+        stance: "Right-handed", 
+        role: "All-rounder", 
+        bowlingType: "Right-arm fast-medium", 
+        testRuns: 7600, odiRuns: 5600, t20Runs: 1288, 
+        testAvg: 44.97, odiAvg: 40.87, t20Avg: 27.40, 
+        testWickets: 33, odiWickets: 120, t20Wickets: 38, 
+        testEconomy: 2.90, odiEconomy: 4.62, t20Economy: 7.10 
+      },
+      "David Warner": { 
+        stance: "Left-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm leg-spin", 
+        testRuns: 8786, odiRuns: 6932, t20Runs: 3366, 
+        testAvg: 44.81, odiAvg: 45.30, t20Avg: 33.66, 
+        testWickets: 4, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 4.00, odiEconomy: 0, t20Economy: 0 
+      },
+      "Kevin Pietersen": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 8181, odiRuns: 4440, t20Runs: 1176, 
+        testAvg: 47.28, odiAvg: 40.73, t20Avg: 37.93, 
+        testWickets: 10, odiWickets: 7, t20Wickets: 1, 
+        testEconomy: 3.70, odiEconomy: 5.30, t20Economy: 8.50 
+      },
+      "Yuvraj Singh": { 
+        stance: "Left-handed", 
+        role: "All-rounder", 
+        bowlingType: "Left-arm orthodox", 
+        testRuns: 1900, odiRuns: 8701, t20Runs: 1177, 
+        testAvg: 33.92, odiAvg: 36.55, t20Avg: 28.02, 
+        testWickets: 9, odiWickets: 111, t20Wickets: 28, 
+        testEconomy: 3.40, odiEconomy: 4.96, t20Economy: 7.06 
+      },
+      "Dale Steyn": { 
+        stance: "Right-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm fast", 
+        testRuns: 1251, odiRuns: 365, t20Runs: 21, 
+        testAvg: 13.27, odiAvg: 9.12, t20Avg: 3.00, 
+        testWickets: 439, odiWickets: 196, t20Wickets: 64, 
+        testEconomy: 3.21, odiEconomy: 4.76, t20Economy: 6.94 
+      },
+      "Gautam Gambhir": { 
+        stance: "Left-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm leg-spin", 
+        testRuns: 4154, odiRuns: 5238, t20Runs: 932, 
+        testAvg: 41.54, odiAvg: 39.68, t20Avg: 27.41, 
+        testWickets: 0, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 0, t20Economy: 0 
+      },
+      "Harbhajan Singh": { 
+        stance: "Right-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 2224, odiRuns: 1237, t20Runs: 108, 
+        testAvg: 18.22, odiAvg: 13.30, t20Avg: 12.00, 
+        testWickets: 417, odiWickets: 269, t20Wickets: 25, 
+        testEconomy: 2.84, odiEconomy: 4.31, t20Economy: 6.80 
+      },
+      "Andrew Flintoff": { 
+        stance: "Right-handed", 
+        role: "All-rounder", 
+        bowlingType: "Right-arm fast-medium", 
+        testRuns: 3845, odiRuns: 3394, t20Runs: 76, 
+        testAvg: 31.77, odiAvg: 32.01, t20Avg: 15.20, 
+        testWickets: 226, odiWickets: 169, t20Wickets: 5, 
+        testEconomy: 3.40, odiEconomy: 4.39, t20Economy: 8.20 
+      },
+      "Michael Clarke": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Left-arm orthodox", 
+        testRuns: 8643, odiRuns: 7981, t20Runs: 488, 
+        testAvg: 49.10, odiAvg: 44.58, t20Avg: 21.21, 
+        testWickets: 31, odiWickets: 57, t20Wickets: 6, 
+        testEconomy: 3.30, odiEconomy: 4.90, t20Economy: 7.50 
+      },
+      "Mohammad Yousuf": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 7530, odiRuns: 9720, t20Runs: 50, 
+        testAvg: 52.29, odiAvg: 41.71, t20Avg: 25.00, 
+        testWickets: 0, odiWickets: 1, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 5.00, t20Economy: 0 
+      },
+      "Shaun Pollock": { 
+        stance: "Right-handed", 
+        role: "All-rounder", 
+        bowlingType: "Right-arm fast-medium", 
+        testRuns: 3781, odiRuns: 3519, t20Runs: 86, 
+        testAvg: 32.31, odiAvg: 26.45, t20Avg: 12.28, 
+        testWickets: 421, odiWickets: 393, t20Wickets: 15, 
+        testEconomy: 2.39, odiEconomy: 3.67, t20Economy: 7.40 
+      },
+      "Chaminda Vaas": { 
+        stance: "Left-handed", 
+        role: "Bowler", 
+        bowlingType: "Left-arm fast-medium", 
+        testRuns: 3089, odiRuns: 2025, t20Runs: 101, 
+        testAvg: 24.32, odiAvg: 13.68, t20Avg: 14.42, 
+        testWickets: 355, odiWickets: 400, t20Wickets: 6, 
+        testEconomy: 2.68, odiEconomy: 4.18, t20Economy: 7.20 
+      },
+      "Martin Crowe": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm medium", 
+        testRuns: 5444, odiRuns: 4704, t20Runs: 0, 
+        testAvg: 45.36, odiAvg: 38.55, t20Avg: 0, 
+        testWickets: 14, odiWickets: 29, t20Wickets: 0, 
+        testEconomy: 3.20, odiEconomy: 4.50, t20Economy: 0 
+      },
+      // New 30 players added below
+      "Ravindra Jadeja": { 
+        stance: "Left-handed", 
+        role: "All-rounder", 
+        bowlingType: "Left-arm orthodox", 
+        testRuns: 3123, odiRuns: 2756, t20Runs: 515, 
+        testAvg: 36.31, odiAvg: 32.42, t20Avg: 22.39, 
+        testWickets: 294, odiWickets: 220, t20Wickets: 54, 
+        testEconomy: 2.46, odiEconomy: 4.92, t20Economy: 7.10 
+      },
+      "Ravichandran Ashwin": { 
+        stance: "Right-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 3309, odiRuns: 707, t20Runs: 184, 
+        testAvg: 26.47, odiAvg: 16.44, t20Avg: 14.15, 
+        testWickets: 516, odiWickets: 156, t20Wickets: 72, 
+        testEconomy: 2.81, odiEconomy: 4.91, t20Economy: 6.98 
+      },
+      "KL Rahul": { 
+        stance: "Right-handed", 
+        role: "Batsman/Wicketkeeper", 
+        bowlingType: "None", 
+        testRuns: 2863, odiRuns: 2820, t20Runs: 2265, 
+        testAvg: 34.49, odiAvg: 50.35, t20Avg: 37.75, 
+        testWickets: 0, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 0, t20Economy: 0 
+      },
+      "Rishabh Pant": { 
+        stance: "Left-handed", 
+        role: "Batsman/Wicketkeeper", 
+        bowlingType: "None", 
+        testRuns: 2419, odiRuns: 865, t20Runs: 1209, 
+        testAvg: 44.80, odiAvg: 34.60, t20Avg: 27.48, 
+        testWickets: 0, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 0, t20Economy: 0 
+      },
+      "Hardik Pandya": { 
+        stance: "Right-handed", 
+        role: "All-rounder", 
+        bowlingType: "Right-arm fast-medium", 
+        testRuns: 532, odiRuns: 1769, t20Runs: 1492, 
+        testAvg: 31.29, odiAvg: 34.02, t20Avg: 25.28, 
+        testWickets: 17, odiWickets: 84, t20Wickets: 86, 
+        testEconomy: 3.20, odiEconomy: 5.58, t20Economy: 8.14 
+      },
+      "Wasim Akram": { 
+        stance: "Left-handed", 
+        role: "Bowler", 
+        bowlingType: "Left-arm fast", 
+        testRuns: 2898, odiRuns: 3717, t20Runs: 0, 
+        testAvg: 22.64, odiAvg: 16.52, t20Avg: 0, 
+        testWickets: 414, odiWickets: 502, t20Wickets: 0, 
+        testEconomy: 2.59, odiEconomy: 3.89, t20Economy: 0 
+      },
+      "Lasith Malinga": { 
+        stance: "Right-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm fast", 
+        testRuns: 275, odiRuns: 569, t20Runs: 136, 
+        testAvg: 11.00, odiAvg: 7.58, t20Avg: 6.80, 
+        testWickets: 101, odiWickets: 338, t20Wickets: 107, 
+        testEconomy: 3.40, odiEconomy: 5.35, t20Economy: 7.42 
+      },
+      "Rangana Herath": { 
+        stance: "Left-handed", 
+        role: "Bowler", 
+        bowlingType: "Left-arm orthodox", 
+        testRuns: 1699, odiRuns: 433, t20Runs: 14, 
+        testAvg: 14.40, odiAvg: 10.02, t20Avg: 3.50, 
+        testWickets: 433, odiWickets: 74, t20Wickets: 5, 
+        testEconomy: 2.80, odiEconomy: 4.85, t20Economy: 7.00 
+      },
+      "Tillakaratne Dilshan": { 
+        stance: "Right-handed", 
+        role: "All-rounder", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 5492, odiRuns: 10290, t20Runs: 1889, 
+        testAvg: 40.67, odiAvg: 39.27, t20Avg: 28.19, 
+        testWickets: 39, odiWickets: 106, t20Wickets: 9, 
+        testEconomy: 3.10, odiEconomy: 4.87, t20Economy: 7.30 
+      },
+      "Ross Taylor": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 7683, odiRuns: 8607, t20Runs: 1909, 
+        testAvg: 44.67, odiAvg: 44.36, t20Avg: 26.15, 
+        testWickets: 3, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 3.50, odiEconomy: 0, t20Economy: 0 
+      },
+      "Hashim Amla": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm medium", 
+        testRuns: 9282, odiRuns: 8113, t20Runs: 1277, 
+        testAvg: 46.64, odiAvg: 49.46, t20Avg: 33.60, 
+        testWickets: 0, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 0, t20Economy: 0 
+      },
+      "Faf du Plessis": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm leg-spin", 
+        testRuns: 4163, odiRuns: 5507, t20Runs: 1528, 
+        testAvg: 40.02, odiAvg: 40.64, t20Avg: 35.53, 
+        testWickets: 0, odiWickets: 2, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 5.50, t20Economy: 0 
+      },
+      "Eoin Morgan": { 
+        stance: "Left-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm medium", 
+        testRuns: 700, odiRuns: 7701, t20Runs: 2458, 
+        testAvg: 30.43, odiAvg: 39.29, t20Avg: 30.35, 
+        testWickets: 0, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 0, t20Economy: 0 
+      },
+      "Jonny Bairstow": { 
+        stance: "Right-handed", 
+        role: "Batsman/Wicketkeeper", 
+        bowlingType: "None", 
+        testRuns: 6042, odiRuns: 3868, t20Runs: 1512, 
+        testAvg: 36.61, odiAvg: 42.50, t20Avg: 31.50, 
+        testWickets: 0, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 0, t20Economy: 0 
+      },
+      "Jos Buttler": { 
+        stance: "Right-handed", 
+        role: "Batsman/Wicketkeeper", 
+        bowlingType: "None", 
+        testRuns: 2907, odiRuns: 5022, t20Runs: 2927, 
+        testAvg: 31.60, odiAvg: 41.16, t20Avg: 34.84, 
+        testWickets: 0, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 0, t20Economy: 0 
+      },
+      "Mitchell Starc": { 
+        stance: "Left-handed", 
+        role: "Bowler", 
+        bowlingType: "Left-arm fast", 
+        testRuns: 1843, odiRuns: 571, t20Runs: 94, 
+        testAvg: 21.94, odiAvg: 11.42, t20Avg: 7.23, 
+        testWickets: 358, odiWickets: 236, t20Wickets: 73, 
+        testEconomy: 3.40, odiEconomy: 5.18, t20Economy: 7.86 
+      },
+      "Trent Boult": { 
+        stance: "Right-handed", 
+        role: "Bowler", 
+        bowlingType: "Left-arm fast-medium", 
+        testRuns: 888, odiRuns: 214, t20Runs: 62, 
+        testAvg: 14.80, odiAvg: 6.48, t20Avg: 5.17, 
+        testWickets: 317, odiWickets: 211, t20Wickets: 83, 
+        testEconomy: 3.00, odiEconomy: 4.94, t20Economy: 8.00 
+      },
+      "Stuart Broad": { 
+        stance: "Left-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm fast-medium", 
+        testRuns: 3662, odiRuns: 609, t20Runs: 118, 
+        testAvg: 18.40, odiAvg: 12.18, t20Avg: 7.37, 
+        testWickets: 604, odiWickets: 178, t20Wickets: 65, 
+        testEconomy: 2.93, odiEconomy: 5.27, t20Economy: 7.72 
+      },
+      "Graeme Swann": { 
+        stance: "Right-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 1370, odiRuns: 500, t20Runs: 104, 
+        testAvg: 19.85, odiAvg: 13.88, t20Avg: 11.55, 
+        testWickets: 255, odiWickets: 104, t20Wickets: 51, 
+        testEconomy: 2.93, odiEconomy: 4.76, t20Economy: 6.80 
+      },
+      "Dwayne Bravo": { 
+        stance: "Right-handed", 
+        role: "All-rounder", 
+        bowlingType: "Right-arm medium-fast", 
+        testRuns: 2200, odiRuns: 2968, t20Runs: 1255, 
+        testAvg: 39.28, odiAvg: 25.36, t20Avg: 24.03, 
+        testWickets: 86, odiWickets: 199, t20Wickets: 78, 
+        testEconomy: 3.20, odiEconomy: 5.40, t20Economy: 8.14 
+      },
+      "Chris Woakes": { 
+        stance: "Right-handed", 
+        role: "All-rounder", 
+        bowlingType: "Right-arm fast-medium", 
+        testRuns: 2158, odiRuns: 1381, t20Runs: 214, 
+        testAvg: 27.62, odiAvg: 25.20, t20Avg: 15.28, 
+        testWickets: 171, odiWickets: 173, t20Wickets: 31, 
+        testEconomy: 3.25, odiEconomy: 5.45, t20Economy: 8.20 
+      },
+      "Jason Holder": { 
+        stance: "Right-handed", 
+        role: "All-rounder", 
+        bowlingType: "Right-arm fast-medium", 
+        testRuns: 2797, odiRuns: 2237, t20Runs: 614, 
+        testAvg: 29.44, odiAvg: 32.42, t20Avg: 17.54, 
+        testWickets: 157, odiWickets: 159, t20Wickets: 38, 
+        testEconomy: 2.80, odiEconomy: 5.10, t20Economy: 7.90 
+      },
+      "Tim Southee": { 
+        stance: "Right-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm fast-medium", 
+        testRuns: 2098, odiRuns: 732, t20Runs: 261, 
+        testAvg: 16.52, odiAvg: 12.40, t20Avg: 8.70, 
+        testWickets: 378, odiWickets: 221, t20Wickets: 157, 
+        testEconomy: 3.00, odiEconomy: 5.38, t20Economy: 8.10 
+      },
+      "Mahmudullah": { 
+        stance: "Right-handed", 
+        role: "All-rounder", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 2914, odiRuns: 5386, t20Runs: 2122, 
+        testAvg: 33.02, odiAvg: 35.30, t20Avg: 23.58, 
+        testWickets: 43, odiWickets: 82, t20Wickets: 38, 
+        testEconomy: 3.40, odiEconomy: 5.20, t20Economy: 7.50 
+      },
+      "Tamim Iqbal": { 
+        stance: "Left-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 5134, odiRuns: 8357, t20Runs: 1758, 
+        testAvg: 38.75, odiAvg: 36.98, t20Avg: 31.96, 
+        testWickets: 0, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 0, t20Economy: 0 
+      },
+      "Mushfiqur Rahim": { 
+        stance: "Right-handed", 
+        role: "Batsman/Wicketkeeper", 
+        bowlingType: "None", 
+        testRuns: 5676, odiRuns: 7792, t20Runs: 1500, 
+        testAvg: 37.09, odiAvg: 36.84, t20Avg: 20.27, 
+        testWickets: 0, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 0, t20Economy: 0 
+      },
+      "Devon Conway": { 
+        stance: "Left-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm medium", 
+        testRuns: 1559, odiRuns: 1358, t20Runs: 1403, 
+        testAvg: 43.30, odiAvg: 48.50, t20Avg: 41.26, 
+        testWickets: 0, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 0, t20Economy: 0 
+      },
+      "Quinton de Kock": { 
+        stance: "Left-handed", 
+        role: "Batsman/Wicketkeeper", 
+        bowlingType: "None", 
+        testRuns: 3300, odiRuns: 6770, t20Runs: 2277, 
+        testAvg: 38.82, odiAvg: 45.13, t20Avg: 32.53, 
+        testWickets: 0, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 0, t20Economy: 0 
+      },
+      "Aiden Markram": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 2600, odiRuns: 2150, t20Runs: 1184, 
+        testAvg: 38.23, odiAvg: 37.06, t20Avg: 35.88, 
+        testWickets: 2, odiWickets: 18, t20Wickets: 9, 
+        testEconomy: 3.50, odiEconomy: 5.30, t20Economy: 7.80 
+      },
+      "Rassie van der Dussen": { 
+        stance: "Right-handed", 
+        role: "Batsman", 
+        bowlingType: "Right-arm leg-spin", 
+        testRuns: 905, odiRuns: 2360, t20Runs: 1071, 
+        testAvg: 34.80, odiAvg: 52.44, t20Avg: 34.54, 
+        testWickets: 0, odiWickets: 1, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 5.00, t20Economy: 0 
+      },
+      "Glenn Maxwell": { 
+        stance: "Right-handed", 
+        role: "All-rounder", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 339, odiRuns: 3895, t20Runs: 2600, 
+        testAvg: 26.07, odiAvg: 35.09, t20Avg: 29.88, 
+        testWickets: 8, odiWickets: 70, t20Wickets: 65, 
+        testEconomy: 3.60, odiEconomy: 5.50, t20Economy: 7.68 
+      },
+      "Nicholas Pooran": { 
+        stance: "Left-handed", 
+        role: "Batsman/Wicketkeeper", 
+        bowlingType: "Right-arm off-spin", 
+        testRuns: 0, odiRuns: 1983, t20Runs: 1848, 
+        testAvg: 0, odiAvg: 39.66, t20Avg: 26.40, 
+        testWickets: 0, odiWickets: 6, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 5.70, t20Economy: 0 
+      },
+      "Kieron Pollard": { 
+        stance: "Right-handed", 
+        role: "All-rounder", 
+        bowlingType: "Right-arm medium-fast", 
+        testRuns: 0, odiRuns: 2706, t20Runs: 1569, 
+        testAvg: 0, odiAvg: 26.01, t20Avg: 25.30, 
+        testWickets: 0, odiWickets: 55, t20Wickets: 42, 
+        testEconomy: 0, odiEconomy: 5.60, t20Economy: 8.30 
+      },
+      "Andre Russell": { 
+        stance: "Right-handed", 
+        role: "All-rounder", 
+        bowlingType: "Right-arm fast", 
+        testRuns: 203, odiRuns: 1034, t20Runs: 912, 
+        testAvg: 22.55, odiAvg: 27.21, t20Avg: 21.71, 
+        testWickets: 1, odiWickets: 70, t20Wickets: 49, 
+        testEconomy: 3.80, odiEconomy: 5.84, t20Economy: 8.50 
+      },
+      "Mohammad Rizwan": { 
+        stance: "Right-handed", 
+        role: "Batsman/Wicketkeeper", 
+        bowlingType: "None", 
+        testRuns: 1616, odiRuns: 2088, t20Runs: 3313, 
+        testAvg: 40.40, odiAvg: 41.76, t20Avg: 48.72, 
+        testWickets: 0, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 0, t20Economy: 0 
+      },
+      " Fakhar Zaman": { 
+        stance: "Left-handed", 
+        role: "Batsman", 
+        bowlingType: "Left-arm orthodox", 
+        testRuns: 192, odiRuns: 3492, t20Runs: 1848, 
+        testAvg: 32.00, odiAvg: 42.07, t20Avg: 23.39, 
+        testWickets: 0, odiWickets: 1, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 5.00, t20Economy: 0 
+      },
+      "Imam-ul-Haq": { 
+        stance: "Left-handed", 
+        role: "Batsman", 
+        bowlingType: "None", 
+        testRuns: 3137, odiRuns: 3138, t20Runs: 0, 
+        testAvg: 48.26, odiAvg: 48.28, t20Avg: 0, 
+        testWickets: 0, odiWickets: 0, t20Wickets: 0, 
+        testEconomy: 0, odiEconomy: 0, t20Economy: 0 
+      },
+      "Shaheen Afridi": { 
+        stance: "Left-handed", 
+        role: "Bowler", 
+        bowlingType: "Left-arm fast", 
+        testRuns: 697, odiRuns: 249, t20Runs: 96, 
+        testAvg: 14.52, odiAvg: 7.54, t20Avg: 5.64, 
+        testWickets: 127, odiWickets: 112, t20Wickets: 96, 
+        testEconomy: 3.10, odiEconomy: 5.52, t20Economy: 7.76 
+      },
+      "Haris Rauf": { 
+        stance: "Right-handed", 
+        role: "Bowler", 
+        bowlingType: "Right-arm fast", 
+        testRuns: 37, odiRuns: 67, t20Runs: 97, 
+        testAvg: 9.25, odiAvg: 5.58, t20Avg: 5.70, 
+        testWickets: 9, odiWickets: 69, t20Wickets: 101, 
+        testEconomy: 3.90, odiEconomy: 5.92, t20Economy: 8.24 
+      }
+      // Add more players here if needed
+    };
+
+    // Populate dropdowns with player names
+    const player1Select = document.getElementById("player1");
+    const player2Select = document.getElementById("player2");
+    const comparisonTable = document.getElementById("comparisonTable");
+
+    // Add player names to dropdowns
+    Object.keys(playerStats).forEach(player => {
+      const option1 = document.createElement("option");
+      const option2 = document.createElement("option");
+      option1.value = player;
+      option1.textContent = player;
+      option2.value = player;
+      option2.textContent = player;
+      player1Select.appendChild(option1);
+      player2Select.appendChild(option2);
+    });
+
+    // Function to compare players and update the table
+    function comparePlayers() {
+      const player1 = player1Select.value;
+      const player2 = player2Select.value;
+
+      // Show table only if both players are selected and they are different
+      if (player1 && player2 && player1 !== player2) {
+        comparisonTable.classList.remove("hidden");
+
+        // Get player stats
+        const p1Stats = playerStats[player1];
+        const p2Stats = playerStats[player2];
+
+        // Update player names in table header
+        document.getElementById("p1Name").textContent = player1;
+        document.getElementById("p2Name").textContent = player2;
+
+        // Update stats and highlight better values
+        const statsFields = [
+          { id: "Stance", key: "stance", compare: false },
+          { id: "Role", key: "role", compare: false },
+          { id: "BowlingType", key: "bowlingType", compare: false },
+          { id: "TestRuns", key: "testRuns", compare: true, higherBetter: true },
+          { id: "OdiRuns", key: "odiRuns", compare: true, higherBetter: true },
+          { id: "T20Runs", key: "t20Runs", compare: true, higherBetter: true },
+          { id: "TestAvg", key: "testAvg", compare: true, higherBetter: true },
+          { id: "OdiAvg", key: "odiAvg", compare: true, higherBetter: true },
+          { id: "T20Avg", key: "t20Avg", compare: true, higherBetter: true },
+          { id: "TestWickets", key: "testWickets", compare: true, higherBetter: true },
+          { id: "OdiWickets", key: "odiWickets", compare: true, higherBetter: true },
+          { id: "T20Wickets", key: "t20Wickets", compare: true, higherBetter: true },
+          { id: "TestEconomy", key: "testEconomy", compare: true, higherBetter: false },
+          { id: "OdiEconomy", key: "odiEconomy", compare: true, higherBetter: false },
+          { id: "T20Economy", key: "t20Economy", compare: true, higherBetter: false },
+        ];
+
+        statsFields.forEach(field => {
+          const p1Cell = document.getElementById(`p1${field.id}`);
+          const p2Cell = document.getElementById(`p2${field.id}`);
+          const p1Value = p1Stats[field.key];
+          const p2Value = p2Stats[field.key];
+
+          // Set the values (handle 0 or undefined as "N/A")
+          p1Cell.textContent = p1Value === 0 || p1Value === undefined ? "N/A" : p1Value;
+          p2Cell.textContent = p2Value === 0 || p2Value === undefined ? "N/A" : p2Value;
+
+          // Remove previous highlights
+          p1Cell.classList.remove("highlight-better");
+          p2Cell.classList.remove("highlight-better");
+
+          // Compare and highlight if applicable
+          if (field.compare && p1Value !== 0 && p2Value !== 0 && p1Value !== undefined && p2Value !== undefined) {
+            if (field.higherBetter) {
+              if (p1Value > p2Value) {
+                p1Cell.classList.add("highlight-better");
+              } else if (p2Value > p1Value) {
+                p2Cell.classList.add("highlight-better");
+              }
+            } else {
+              // For economy rates, lower is better
+              if (p1Value < p2Value) {
+                p1Cell.classList.add("highlight-better");
+              } else if (p2Value < p1Value) {
+                p2Cell.classList.add("highlight-better");
+              }
+            }
+          }
+        });
+      } else {
+        comparisonTable.classList.add("hidden");
+      }
+    }
+
+    // Add event listeners to dropdowns
+    player1Select.addEventListener("change", comparePlayers);
+    player2Select.addEventListener("change", comparePlayers);
+  </script>
+</body>
+</html>

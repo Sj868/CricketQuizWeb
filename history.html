@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cricket Fever - History of Cricketers</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #f5f5f5;
+    }
+    .header-bg {
+      background: linear-gradient(to right, #ff6f00, #388e3c);
+    }
+    .history-bg {
+      background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('background_images/cricket_history.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body class="font-sans">
+  <!-- Header -->
+  <header class="header-bg text-white py-6 shadow-lg">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-4xl font-extrabold tracking-wide">Cricket Fever</h1>
+      <nav>
+        <ul class="flex space-x-8">
+          <li><a href="index.html#home" class="hover:text-orange-300 transition duration-300">Home</a></li>
+          <li><a href="index.html#quiz" class="hover:text-orange-300 transition duration-300">Quiz</a></li>
+          <li><a href="index.html#about" class="hover:text-orange-300 transition duration-300">About</a></li>
+          <li><a href="history.html" class="hover:text-orange-300 transition duration-300">History</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Search Bar -->
+  <section class="py-6">
+    <div class="container mx-auto px-4">
+      <input type="text" id="searchInput" placeholder="Search for a cricketer..." class="w-full max-w-lg mx-auto block p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-800" oninput="searchPlayers()">
+    </div>
+  </section>
+
+  <!-- History Section -->
+  <section id="history" class="history-bg py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-10 text-green-800">History of Legendary Cricketers</h2>
+      <div id="playerGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+
+        <!-- Virat Kohli -->
+        <div class="player-card bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Virat Kohli</h3>
+          <p class="text-lg mb-4">Born on November 5, 1988, in Delhi, India, Virat Kohli is regarded as one of the greatest batsmen in cricket history. He led the Indian U-19 team to victory in the 2008 World Cup and made his ODI debut later that year against Sri Lanka. Kohli is the first player to feature in 300 ODIs, 100 Tests, and 100 T20Is, achieving this milestone during the 2025 ICC Champions Trophy. He holds the record for the most ODI centuries (51 as of 2025) and is the fastest to reach 14,000 ODI runs (299 innings). Kohli captained India to a historic Test series win in Australia in 2018-19 and has won multiple ICC awards, including Cricketer of the Decade (2020).</p>
+        </div>
+
+        <!-- Sachin Tendulkar -->
+        <div class="player-card bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Sachin Tendulkar</h3>
+          <p class="text-lg mb-4">Known as the 'God of Cricket,' Sachin Tendulkar was born on April 24, 1973, in Mumbai, India. He debuted for India in 1989 at age 16 against Pakistan, becoming the youngest Indian to play internationally. Tendulkar holds the record for the most international runs (34,357) and was the first to score 100 international centuries (retiring with 100 in 2013). He played 463 ODIs, the most by any Indian, and was a key part of India’s 2011 World Cup-winning team. Tendulkar’s 24-year career ended in 2013, leaving a legacy of technical brilliance and humility.</p>
+        </div>
+        <!-- Sir Don Bradman -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Sir Don Bradman</h3>
+          <p class="text-lg mb-4">Born on August 27, 1908, in New South Wales, Australia, Sir Don Bradman is often hailed as the greatest batsman ever. His Test career spanned 1928 to 1948, where he scored 6,996 runs in 52 matches at an astonishing average of 99.94, a record unlikely to be broken. Bradman scored 29 centuries, including two triple centuries, and led Australia to multiple Ashes victories. His disciplined technique and mental fortitude redefined batting standards. Bradman passed away in 2001, but his legacy endures as a benchmark for cricketing excellence.</p>
+        </div>
+
+        <!-- Vivian Richards -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Sir Vivian Richards</h3>
+          <p class="text-lg mb-4">Born on March 7, 1952, in Antigua, Sir Vivian Richards was a dominant force in cricket during the 1970s and 1980s. Known for his aggressive batting, Richards scored 8,540 Test runs at an average of 50.23 and 6,721 ODI runs. He never wore a helmet, yet intimidated bowlers with his fearless approach. Richards led the West Indies to the 1979 World Cup title and was part of the 1975 winning team. His 189* against England in 1984 remains one of the finest ODI innings. Richards’ swagger and power left an indelible mark on the game.</p>
+        </div>
+
+        <!-- Brian Lara -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Brian Lara</h3>
+          <p class="text-lg mb-4">Born on May 2, 1969, in Trinidad, Brian Lara is celebrated for his elegant batting and record-breaking feats. He holds the highest individual Test score of 400* against England in 2004, surpassing his own 375 set in 1994. Lara scored 11,953 Test runs and 10,405 ODI runs, with 53 international centuries. His 169 against Sri Lanka in 1995 helped the West Indies chase a then-record 343 in an ODI. Lara’s ability to play long, match-defining innings made him a West Indian icon, retiring in 2007 as one of the game’s finest.</p>
+        </div>
+
+        <!-- Shane Warne -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Shane Warne</h3>
+          <p class="text-lg mb-4">Born on September 13, 1969, in Victoria, Australia, Shane Warne revolutionized spin bowling. Debuting in 1992, Warne took 708 Test wickets, the second-most ever, and 293 ODI wickets. His ‘Ball of the Century’ in 1993 dismissed Mike Gatting and marked his arrival. Warne was a key part of Australia’s 1999 World Cup win and led them to multiple Ashes triumphs. Known for his charisma and tactical acumen, Warne’s 145 Test matches included 37 five-wicket hauls. He passed away in 2022, leaving a legacy as one of cricket’s greatest entertainers.</p>
+        </div>
+
+        <!-- Muttiah Muralitharan -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Muttiah Muralitharan</h3>
+          <p class="text-lg mb-4">Born on April 17, 1972, in Kandy, Sri Lanka, Muttiah Muralitharan is widely regarded as the greatest Test bowler ever. He holds the record for the most wickets in international cricket with 1,347 (800 in Tests, 534 in ODIs). Debuting in 1992, Murali’s unique wrist-spinning action baffled batsmen worldwide. He is the only player to take 10 wickets in four consecutive Tests and 50+ wickets against every Test nation. Muralitharan played a pivotal role in Sri Lanka’s 1996 World Cup win and retired in 2011 as a spin-bowling legend.</p>
+        </div>
+
+        <!-- Sir Garfield Sobers -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Sir Garfield Sobers</h3>
+          <p class="text-lg mb-4">Born on July 28, 1936, in Barbados, Sir Garfield Sobers is considered the most complete cricketer ever. A brilliant all-rounder, Sobers scored 8,032 Test runs at an average of 57.78 and took 235 wickets with his versatile bowling (left-arm pace and spin). He holds the record for the highest Test score at the time, an unbeaten 365 against Pakistan in 1958, and was the first to hit six sixes in an over in first-class cricket. Sobers’ elegance and adaptability made him a West Indian icon until his retirement in 1974.</p>
+        </div>
+
+        <!-- Wasim Akram -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Wasim Akram</h3>
+          <p class="text-lg mb-4">Born on June 3, 1966, in Lahore, Pakistan, Wasim Akram, known as the ‘Sultan of Swing,’ redefined fast bowling. Debuting in 1984, Akram took 414 Test wickets and 502 ODI wickets, becoming the first to reach 500 ODI wickets. His mastery of reverse swing and in-swinging yorkers made him a nightmare for batsmen. Akram played a key role in Pakistan’s 1992 World Cup victory and holds the record for most wickets in List A cricket (881). Retiring in 2003, Akram remains one of cricket’s greatest fast bowlers.</p>
+        </div>
+
+        <!-- Kumar Sangakkara -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Kumar Sangakkara</h3>
+          <p class="text-lg mb-4">Born on October 27, 1977, in Matale, Sri Lanka, Kumar Sangakkara is one of the finest wicketkeeper-batsmen in cricket history. He scored 12,400 Test runs at an average of 57.40 and 14,234 ODI runs, one of the few to score 10,000+ runs in both formats. Sangakkara’s elegant stroke play and sharp keeping earned him the ICC Cricketer of the Year award in 2012. A key member of Sri Lanka’s 2014 T20 World Cup-winning team, he retired in 2015 and remains a respected figure in cricket governance.</p>
+        </div>
+
+        <!-- Sunil Gavaskar -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Sunil Gavaskar</h3>
+          <p class="text-lg mb-4">Born on July 10, 1949, in Mumbai, India, Sunil Gavaskar, known as the ‘Little Master,’ was a batting pioneer. Debuting in 1971, he became the first to score 10,000 Test runs, finishing with 10,122 at an average of 51.12. Facing the fearsome West Indies pacers without a helmet, Gavaskar scored 13 centuries against them, a record. His technique and focus made him India’s first global batting star. Retiring in 1987, Gavaskar played a key role in establishing India as a competitive cricketing nation.</p>
+        </div>
+
+        <!-- Imran Khan -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Imran Khan</h3>
+          <p class="text-lg mb-4">Born on October 5, 1952, in Lahore, Pakistan, Imran Khan was a transformative all-rounder and captain. He scored 3,807 Test runs and took 362 wickets, averaging 50 with the bat and 19 with the ball in his final decade. Khan led Pakistan to the 1992 World Cup title, a defining moment in the nation’s cricketing history. His revolutionary fast bowling and leadership inspired generations. Retiring in 1992, Khan’s legacy as one of cricket’s greatest all-rounders endures.</p>
+        </div>
+
+        <!-- AB de Villiers -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">AB de Villiers</h3>
+          <p class="text-lg mb-4">Born on February 17, 1984, in Pretoria, South Africa, AB de Villiers, nicknamed ‘Mr. 360,’ redefined batting with his versatility. He scored 8,765 Test runs at an average of 50.66 and 9,577 ODI runs at 53.50. De Villiers holds the record for the fastest ODI century (31 balls) against West Indies in 2015. A phenomenal fielder and occasional wicketkeeper, he led South Africa in all formats before retiring in 2018. De Villiers’ innovative shot-making made him a fan favorite worldwide.</p>
+        </div>
+
+        <!-- MS Dhoni -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">MS Dhoni</h3>
+          <p class="text-lg mb-4">Born on July 7, 1981, in Ranchi, India, MS Dhoni, known as ‘Captain Cool,’ is one of cricket’s greatest leaders. He scored 4,876 Test runs and 10,773 ODI runs, averaging 50.57 in ODIs. Dhoni led India to the 2007 T20 World Cup, 2011 Cricket World Cup, and 2013 Champions Trophy, the only captain to win all three ICC trophies. His iconic six to win the 2011 World Cup final is legendary. Retiring in 2020, Dhoni’s calm demeanor and finishing skills remain unmatched.</p>
+        </div>
+
+        <!-- Kapil Dev -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Kapil Dev</h3>
+          <p class="text-lg mb-4">Born on January 6, 1959, in Chandigarh, India, Kapil Dev is one of India’s greatest all-rounders. He scored 5,248 Test runs and took 434 wickets, plus 3,783 runs and 253 wickets in ODIs. Kapil led India to its first World Cup victory in 1983, famously scoring 175* against Zimbabwe. He holds the record for the fastest Test century by an Indian (74 balls). Retiring in 1994, Kapil’s legacy as a trailblazer for Indian cricket endures.</p>
+        </div>
+
+        <!-- Jacques Kallis -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Jacques Kallis</h3>
+          <p class="text-lg mb-4">Born on October 16, 1975, in Cape Town, South Africa, Jacques Kallis is regarded as cricket’s greatest all-rounder. He scored 13,289 Test runs at an average of 55.37 and took 292 wickets, plus 11,579 ODI runs and 200 wickets. Kallis is the only player with 10,000+ runs and 200+ wickets in both Tests and ODIs. A key part of South Africa’s dominance, he retired in 2014 with 45 Test centuries, leaving a legacy of consistency and versatility.</p>
+        </div>
+
+        <!-- Ricky Ponting -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Ricky Ponting</h3>
+          <p class="text-lg mb-4">Born on December 19, 1974, in Tasmania, Australia, Ricky Ponting is one of Australia’s most successful captains. He scored 13,378 Test runs at an average of 51.85 and 13,704 ODI runs, with 71 international centuries. Ponting led Australia to World Cup victories in 2003 and 2007, and holds the record for most Test wins as captain (48). His iconic pull shot and leadership defined an era. Retiring in 2012, Ponting remains a cricketing legend.</p>
+        </div>
+
+        <!-- Adam Gilchrist -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Adam Gilchrist</h3>
+          <p class="text-lg mb-4">Born on November 14, 1971, in New South Wales, Australia, Adam Gilchrist revolutionized the role of wicketkeeper-batsmen. He scored 5,570 Test runs at an average of 47.60 and 9,619 ODI runs, with a strike rate of 96.94 in ODIs. Gilchrist’s aggressive batting, including a 57-ball Test century against England in 2006, changed the game. A key part of Australia’s 1999, 2003, and 2007 World Cup wins, he retired in 2008 as one of cricket’s most impactful players.</p>
+        </div>
+
+        <!-- Allan Border -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Allan Border</h3>
+          <p class="text-lg mb-4">Born on July 27, 1955, in Sydney, Australia, Allan Border was the backbone of Australian cricket in the 1980s. He scored 11,174 Test runs at an average of 50.56, with 27 centuries. As captain, Border transformed Australia into a dominant force, leading them to the 1987 World Cup title. He held the record for most Test matches played (156) at retirement in 1994. The Allan Border Medal, awarded to Australia’s best player annually, honors his legacy.</p>
+        </div>
+
+        <!-- Virender Sehwag -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Virender Sehwag</h3>
+          <p class="text-lg mb-4">Born on October 20, 1978, in Delhi, India, Virender Sehwag redefined opening batting with his fearless approach. He scored 8,586 Test runs at an average of 49.34, including two triple centuries (319 vs South Africa, 2008). Sehwag’s aggressive style yielded 23 Test centuries and a 219 in ODIs, the second-highest ODI score at the time. His strike rate of over 80 in Tests is remarkable. Retiring in 2015, Sehwag remains an Indian cricket icon.</p>
+        </div>
+
+        <!-- Malcolm Marshall -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Malcolm Marshall</h3>
+          <p class="text-lg mb-4">Born on April 18, 1958, in Barbados, Malcolm Marshall was one of the greatest fast bowlers ever. He took 376 Test wickets at an average of 20.94, the best among bowlers with 200+ wickets. Marshall’s lethal bouncer, in-swinger, and leg-cutter made him a key part of the West Indies’ pace attack in the 1980s. He also scored 10 Test fifties as a lower-order batsman. Marshall passed away in 1999, leaving a legacy of pace and precision.</p>
+        </div>
+
+        <!-- Sir Ian Botham -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Sir Ian Botham</h3>
+          <p class="text-lg mb-4">Born on November 24, 1955, in Cheshire, England, Sir Ian Botham was a game-changing all-rounder. He scored 5,200 Test runs and took 383 wickets, including 14 five-wicket hauls. Botham’s heroics in the 1981 Ashes, dubbed ‘Botham’s Ashes,’ included a 149* at Headingley that turned the series. He also took 145 ODI wickets. Retiring in 1992, Botham’s flair and match-winning ability inspired generations of English cricketers.</p>
+        </div>
+
+        <!-- Chris Gayle -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Chris Gayle</h3>
+          <p class="text-lg mb-4">Born on September 21, 1979, in Kingston, Jamaica, Chris Gayle, the ‘Universe Boss,’ is a T20 legend. He scored 7,214 Test runs and 10,480 ODI runs, but his 12,528 T20 runs are unmatched. Gayle is one of four players with two Test triple centuries (317 vs South Africa, 2005) and holds the record for most sixes in international cricket (553). His 175* in IPL 2013 is the highest T20 score. Retiring in 2021, Gayle redefined power-hitting.</p>
+        </div>
+
+        <!-- Shoaib Akhtar -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Shoaib Akhtar</h3>
+          <p class="text-lg mb-4">Born on August 13, 1975, in Rawalpindi, Pakistan, Shoaib Akhtar, the ‘Rawalpindi Express,’ was one of the fastest bowlers ever. He delivered the fastest recorded ball at 161.3 km/h in the 2003 World Cup. Akhtar took 178 Test wickets and 247 ODI wickets, often dismantling batting lineups with raw pace. His eight-wicket haul in the 1999 Asian Test Championship, dismissing Dravid and Tendulkar in successive deliveries, is iconic. Akhtar retired in 2011.</p>
+        </div>
+
+        <!-- Shahid Afridi -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Shahid Afridi</h3>
+          <p class="text-lg mb-4">Born on March 1, 1980, in Khyber, Pakistan, Shahid Afridi, known as ‘Boom Boom,’ was a dynamic all-rounder. He holds the record for the fastest ODI century (37 balls vs Sri Lanka, 1996) and scored 32 runs in a single over. Afridi hit 351 international sixes and took 395 ODI wickets, the second-most in T20Is at retirement in 2017. His aggressive style and match-winning flair, including a 2009 T20 World Cup semi-final 54*, made him a Pakistani icon.</p>
+        </div>
+
+        <!-- Sir Richard Hadlee -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Sir Richard Hadlee</h3>
+          <p class="text-lg mb-4">Born on July 3, 1951, in Christchurch, New Zealand, Sir Richard Hadlee was a fast-bowling genius. He took 431 Test wickets, a record at the time, at an average of 22.29. Hadlee was the first to reach 400 Test wickets and scored 3,124 runs as a handy batsman. His 9/52 against Australia in 1985 remains one of the best bowling figures in Tests. Retiring in 1990, Hadlee elevated New Zealand’s cricketing stature single-handedly.</p>
+        </div>
+
+        <!-- Matthew Hayden -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Matthew Hayden</h3>
+          <p class="text-lg mb-4">Born on October 29, 1971, in Queensland, Australia, Matthew Hayden was a dominant Test opener. He scored 8,625 Test runs at an average of 50.73, with 30 centuries, including a then-record 380 against Zimbabwe in 2003. Hayden’s powerful strokeplay was key to Australia’s golden era, contributing to the 1999, 2003, and 2007 World Cup wins. He also scored 6,133 ODI runs. Retiring in 2009, Hayden’s imposing presence at the crease is legendary.</p>
+        </div>
+
+        <!-- Wally Hammond -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Wally Hammond</h3>
+          <p class="text-lg mb-4">Born on June 19, 1903, in Dover, England, Wally Hammond was one of England’s finest batsmen. He scored 7,249 Test runs at an average of 58.45, with 22 centuries, and took 83 wickets. Hammond’s elegant technique shone in his 336* against New Zealand in 1933, a Test record at the time. He played 85 Tests from 1927 to 1947, excelling in all conditions. Hammond passed away in 1965, leaving a legacy of grace and consistency.</p>
+        </div>
+
+        <!-- Jack Hobbs -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Sir Jack Hobbs</h3>
+          <p class="text-lg mb-4">Born on December 16, 1882, in Cambridge, England, Sir Jack Hobbs, known as ‘The Master,’ was a batting pioneer. He scored 5,410 Test runs at an average of 56.94, with 15 centuries, and 61,760 first-class runs, a record. Hobbs was the first cricketer knighted by the queen in 1953. Playing from 1908 to 1930, he mastered all conditions, especially against Australia. Hobbs passed away in 1963, revered as one of cricket’s greatest openers.</p>
+        </div>
+
+        <!-- Rahul Dravid -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Rahul Dravid</h3>
+          <p class="text-lg mb-4">Born on January 11, 1973, in Indore, India, Rahul Dravid, known as ‘The Wall,’ was a batting rock. He scored 13,288 Test runs at an average of 52.31, with 36 centuries, and 10,889 ODI runs. Dravid holds the record for most catches in Tests (210) as a fielder. His 270 against Pakistan in 2004 helped India win a historic series. Retiring in 2012, Dravid’s technique and resilience made him a cornerstone of Indian cricket.</p>
+        </div>
+
+        <!-- Glenn McGrath -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Glenn McGrath</h3>
+          <p class="text-lg mb-4">Born on February 9, 1970, in New South Wales, Australia, Glenn McGrath was a fast-bowling metronome. He took 563 Test wickets at an average of 21.64 and 381 ODI wickets, playing a key role in Australia’s 1999, 2003, and 2007 World Cup wins. McGrath’s 7/15 against Namibia in 2003 is the best World Cup bowling figure. His relentless accuracy tormented batsmen. Retiring in 2007, McGrath remains one of cricket’s greatest pacers.</p>
+        </div>
+
+        <!-- Steve Waugh -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Steve Waugh</h3>
+          <p class="text-lg mb-4">Born on June 2, 1965, in Sydney, Australia, Steve Waugh was a gritty batsman and astute captain. He scored 10,927 Test runs at an average of 51.06, with 32 centuries, and 7,569 ODI runs. Waugh led Australia to the 1999 World Cup title and 16 consecutive Test wins, a record. His 120* against South Africa in 1999 turned the tide in the World Cup. Retiring in 2004, Waugh’s leadership and resilience defined Australian cricket.</p>
+        </div>
+
+        <!-- Waqar Younis -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Waqar Younis</h3>
+          <p class="text-lg mb-4">Born on November 16, 1971, in Vehari, Pakistan, Waqar Younis was a reverse-swing maestro. He took 373 Test wickets and 416 ODI wickets, with his 7/36 against England in 1990 being a highlight. Waqar’s toe-crushing yorkers and pace made him a feared bowler. He holds the record for most five-wicket hauls in ODIs (13, tied). Retiring in 2003, Waqar’s partnership with Wasim Akram formed one of cricket’s deadliest bowling duos.</p>
+        </div>
+
+        <!-- Curtly Ambrose -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Curtly Ambrose</h3>
+          <p class="text-lg mb-4">Born on September 21, 1963, in Antigua, Curtly Ambrose was a towering West Indian fast bowler. He took 405 Test wickets at an average of 20.99 and 225 ODI wickets. Ambrose’s 7/1 in a 1993 Test spell against Australia decimated their batting. Standing 6’7”, his bounce and accuracy were lethal. A key part of the West Indies’ dominance in the 1990s, Ambrose retired in 2000 as one of the game’s most intimidating bowlers.</p>
+        </div>
+
+        <!-- Anil Kumble -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Anil Kumble</h3>
+          <p class="text-lg mb-4">Born on October 17, 1970, in Bangalore, India, Anil Kumble was a leg-spin wizard. He took 619 Test wickets, the third-most ever, including a perfect 10/74 against Pakistan in 1999, one of only two such feats in Test history. Kumble also scored 2,506 Test runs. His 337 ODI wickets include a 6/12 against West Indies in 1993. Retiring in 2008, Kumble’s determination and guile made him India’s greatest match-winner.</p>
+        </div>
+
+        <!-- Clive Lloyd -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Clive Lloyd</h3>
+          <p class="text-lg mb-4">Born on August 31, 1944, in Georgetown, Guyana, Clive Lloyd was a visionary West Indian captain. He scored 7,515 Test runs at an average of 46.67 and led the West Indies to World Cup wins in 1975 and 1979. Lloyd’s 102 in the 1975 World Cup final set the tone for West Indian dominance. His leadership united a fearsome pace attack, making the West Indies unbeatable in the 1970s and 1980s. Lloyd retired in 1985.</p>
+        </div>
+
+        <!-- Greg Chappell -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Greg Chappell</h3>
+          <p class="text-lg mb-4">Born on August 7, 1948, in Adelaide, Australia, Greg Chappell was a batting maestro. He scored 7,110 Test runs at an average of 53.86, with 24 centuries, including 247* against New Zealand in 1974. Chappell’s elegant drives and cover shots were textbook. He also took 47 Test wickets and captained Australia to 21 Test wins. Retiring in 1984, Chappell’s influence as a batsman and coach shaped Australian cricket for decades.</p>
+        </div>
+
+        <!-- Dennis Lillee -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Dennis Lillee</h3>
+          <p class="text-lg mb-4">Born on July 18, 1949, in Perth, Australia, Dennis Lillee was a fast-bowling icon. He took 355 Test wickets at an average of 23.92, a record at the time, and 103 ODI wickets. Lillee’s fiery pace and aggression, exemplified by his 7/83 against West Indies in 1971, terrorized batsmen. He played a key role in Australia’s 1970s resurgence. Retiring in 1984, Lillee’s legacy as one of cricket’s fiercest competitors endures.</p>
+        </div>
+
+        <!-- Javed Miandad -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Javed Miandad</h3>
+          <p class="text-lg mb-4">Born on June 12, 1957, in Karachi, Pakistan, Javed Miandad was a batting genius. He scored 8,832 Test runs at an average of 52.57 and 7,381 ODI runs. Miandad’s last-ball six against India in 1986 to win the Austral-Asia Cup is iconic. He played 124 Tests, scoring 23 centuries, and was a master of pressure situations. Retiring in 1996, Miandad’s street-smart batting and competitive spirit made him a Pakistani legend.</p>
+        </div>
+
+        <!-- Michael Holding -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Michael Holding</h3>
+          <p class="text-lg mb-4">Born on February 16, 1954, in Kingston, Jamaica, Michael Holding, known as ‘Whispering Death,’ was a West Indian pace legend. He took 249 Test wickets at an average of 23.68, with his 14/149 against England in 1976 being the best match figures by a West Indian. Holding’s smooth run-up and lethal pace defined the West Indies’ dominance. Retiring in 1987, he later became a respected commentator, known for his insightful analysis.</p>
+        </div>
+
+        <!-- Alastair Cook -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Sir Alastair Cook</h3>
+          <p class="text-lg mb-4">Born on December 25, 1984, in Gloucester, England, Sir Alastair Cook is England’s leading Test run-scorer. He amassed 12,472 runs at an average of 45.35, with 33 centuries, including 294 against India in 2011. Cook captained England to Ashes victories in 2013 and 2015 and holds the record for most Test matches played by an Englishman (159). Retiring in 2018, Cook’s resilience and consistency made him a modern great.</p>
+        </div>
+
+        <!-- James Anderson -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">James Anderson</h3>
+          <p class="text-lg mb-4">Born on July 30, 1982, in Burnley, England, James Anderson is Test cricket’s most successful fast bowler. He took 704 Test wickets, the most by a pacer, at an average of 26.45, and holds the record for most maidens bowled in Tests (1,288). Anderson’s swing bowling, highlighted by his 7/42 against West Indies in 2017, was unplayable. Retiring in 2024, Anderson’s longevity and skill made him an English icon.</p>
+        </div>
+
+        <!-- Graeme Smith -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Graeme Smith</h3>
+          <p class="text-lg mb-4">Born on February 1, 1981, in Johannesburg, South Africa, Graeme Smith was a prolific opener and captain. He scored 9,265 Test runs at an average of 48.25, with 27 centuries, including back-to-back double centuries (277 and 259) against England in 2003. Smith led South Africa in a record 109 Tests, guiding them to the No. 1 ranking. Retiring in 2014, Smith’s leadership and grit made him a South African hero.</p>
+        </div>
+
+        <!-- Inzamam-ul-Haq -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Inzamam-ul-Haq</h3>
+          <p class="text-lg mb-4">Born on March 3, 1970, in Multan, Pakistan, Inzamam-ul-Haq was a batting powerhouse. He scored 8,830 Test runs at an average of 49.60 and 11,739 ODI runs, with 25 Test centuries. His 60 in the 1992 World Cup semi-final against New Zealand was match-defining. Inzamam captained Pakistan to the 2007 T20 World Cup final. Retiring in 2007, his calm presence and powerful strokeplay made him a Pakistani legend.</p>
+        </div>
+
+        <!-- Andy Roberts -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Andy Roberts</h3>
+          <p class="text-lg mb-4">Born on January 29, 1951, in Antigua, Andy Roberts was a pioneer of West Indian pace bowling. He took 202 Test wickets at an average of 25.61, with his 7/54 against India in 1974 being a standout. Roberts’ intelligent variations and bounce were key to the West Indies’ dominance in the 1970s. He also took 87 ODI wickets, including in the 1975 World Cup final. Retiring in 1983, Roberts set the stage for future pace bowlers.</p>
+        </div>
+
+        <!-- Gordon Greenidge -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Gordon Greenidge</h3>
+          <p class="text-lg mb-4">Born on May 1, 1951, in Barbados, Gordon Greenidge was a fearsome West Indian opener. He scored 7,558 Test runs at an average of 44.72, with 19 centuries, including 214* in the 1976 Lord’s Test against England. Greenidge’s 327-run opening stand with Desmond Haynes against England in 1990 is a record. His aggressive batting helped the West Indies win the 1979 World Cup. Retiring in 1991, Greenidge was a batting cornerstone.</p>
+        </div>
+
+        <!-- Desmond Haynes -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Desmond Haynes</h3>
+          <p class="text-lg mb-4">Born on February 15, 1956, in Barbados, Desmond Haynes formed a legendary opening pair with Gordon Greenidge. He scored 7,487 Test runs at an average of 42.29 and 8,648 ODI runs, with 26 ODI centuries, a record at the time. Haynes’ 148 in the 1979 World Cup final was pivotal. His 26 Test century partnerships with Greenidge are unmatched. Retiring in 1994, Haynes’ consistency made him a West Indian great.</p>
+        </div>
+
+        <!-- Courtney Walsh -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Courtney Walsh</h3>
+          <p class="text-lg mb-4">Born on October 30, 1962, in Kingston, Jamaica, Courtney Walsh was a West Indian pace giant. He took 519 Test wickets at an average of 24.44, the first to reach 500 Test wickets, and 227 ODI wickets. Walsh’s 5/1 spell against Sri Lanka in 1986 is legendary. He captained the West Indies in 22 Tests. Retiring in 2001, Walsh’s endurance and partnership with Ambrose made him a fearsome bowler.</p>
+        </div>
+
+        <!-- Bob Willis -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Bob Willis</h3>
+          <p class="text-lg mb-4">Born on May 30, 1949, in Sunderland, England, Bob Willis was a fast-bowling stalwart. He took 325 Test wickets at an average of 25.20, with his 8/43 in the 1981 Ashes at Headingley turning the series. Willis played 90 Tests and was England’s leading wicket-taker until 1984. His fiery pace and determination were key in the 1970s and 1980s. Willis passed away in 2019, remembered as an Ashes hero.</p>
+        </div>
+
+        <!-- Fred Trueman -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Fred Trueman</h3>
+          <p class="text-lg mb-4">Born on February 6, 1931, in Yorkshire, England, Fred Trueman, known as ‘Fiery Fred,’ was a fast-bowling legend. He took 307 Test wickets at an average of 21.57, the first to reach 300 Test wickets. Trueman’s 8/31 against India in 1952 showcased his pace and swing. Playing from 1952 to 1965, he was a key part of England’s attack. Trueman passed away in 2006, leaving a legacy of fiery competitiveness.</p>
+        </div>
+
+        <!-- Len Hutton -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Sir Len Hutton</h3>
+          <p class="text-lg mb-4">Born on June 23, 1916, in Yorkshire, England, Sir Len Hutton was a batting great. He scored 6,971 Test runs at an average of 56.67, with 19 centuries, including a record 364 against Australia in 1938, the highest Test score until 1958. Hutton played 79 Tests from 1937 to 1955 and captained England to reclaim the Ashes in 1953. Hutton passed away in 1990, remembered for his technique and resilience.</p>
+        </div>
+
+        <!-- Mark Waugh -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Mark Waugh</h3>
+          <p class="text-lg mb-4">Born on June 2, 1965, in Sydney, Australia, Mark Waugh was an elegant batsman and brilliant fielder. He scored 8,029 Test runs at an average of 41.81, with 20 centuries, and 8,500 ODI runs. Waugh’s 173 against West Indies in 1996 was a masterclass. He took 181 Test catches, a record for a non-wicketkeeper at the time. Retiring in 2002, Waugh’s grace and slip fielding made him a fan favorite.</p>
+        </div>
+
+        <!-- Ian Bell -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Ian Bell</h3>
+          <p class="text-lg mb-4">Born on April 11, 1982, in Coventry, England, Ian Bell was a stylish batsman. He scored 7,727 Test runs at an average of 42.69, with 22 centuries, including 144 in the 2013 Ashes. Bell’s cover drives were iconic, earning praise from Ricky Ponting. He played 118 Tests and was part of England’s 2013 and 2015 Ashes wins. Retiring in 2015, Bell’s elegance and consistency made him a modern English great.</p>
+        </div>
+
+        <!-- VVS Laxman -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">VVS Laxman</h3>
+          <p class="text-lg mb-4">Born on November 1, 1974, in Hyderabad, India, VVS Laxman was a wristy batsman. He scored 8,781 Test runs at an average of 45.97, with 17 centuries, including a 281 against Australia in 2001, one of the greatest Test innings. Laxman’s partnerships with Dravid were legendary, often rescuing India. He also scored 2,338 ODI runs. Retiring in 2012, Laxman’s artistry against spin and pace made him a clutch performer.</p>
+        </div>
+
+        <!-- Zaheer Khan -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Zaheer Khan</h3>
+          <p class="text-lg mb-4">Born on October 7, 1978, in Maharashtra, India, Zaheer Khan was a crafty left-arm pacer. He took 311 Test wickets at an average of 32.94 and 282 ODI wickets, playing a key role in India’s 2011 World Cup win. Zaheer’s 5/29 against New Zealand in 2000 announced his arrival. His reverse swing and tactical nous were vital for India. Retiring in 2015, Zaheer remains one of India’s best fast bowlers.</p>
+        </div>
+
+        <!-- Saeed Anwar -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Saeed Anwar</h3>
+          <p class="text-lg mb-4">Born on September 6, 1968, in Karachi, Pakistan, Saeed Anwar was a stylish opener. He scored 4,052 Test runs at an average of 45.52 and 8,824 ODI runs, with 20 ODI centuries, a record at the time. Anwar’s 194 against India in 1997 was the highest ODI score then. His elegant drives and timing were a treat. Retiring in 2003, Anwar’s 1999 World Cup performances cemented his legacy as a Pakistani great.</p>
+        </div>
+
+        <!-- Sourav Ganguly -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Sourav Ganguly</h3>
+          <p class="text-lg mb-4">Born on July 8, 1972, in Kolkata, India, Sourav Ganguly, the ‘Prince of Calcutta,’ was a transformative captain. He scored 7,212 Test runs and 11,363 ODI runs, with 22 ODI centuries. Ganguly’s 183 in the 1999 World Cup is one of the best ODI knocks. He led India to the 2003 World Cup final and instilled aggression in the team. Retiring in 2008, Ganguly’s leadership reshaped Indian cricket.</p>
+        </div>
+
+        <!-- Shivnarine Chanderpaul -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Shivnarine Chanderpaul</h3>
+          <p class="text-lg mb-4">Born on August 16, 1974, in Guyana, Shivnarine Chanderpaul was a resilient West Indian batsman. He scored 11,867 Test runs at an average of 51.37, with 30 centuries, and 8,778 ODI runs. Chanderpaul’s unorthodox stance and gritty 153* against Australia in 2008 were highlights. He played 164 Tests, a West Indian record. Retiring in 2015, Chanderpaul’s consistency kept the West Indies competitive during a tough era.</p>
+        </div>
+
+        <!-- Mark Boucher -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Mark Boucher</h3>
+          <p class="text-lg mb-4">Born on December 3, 1976, in East London, South Africa, Mark Boucher was a record-breaking wicketkeeper. He holds the Test record for most dismissals (555) and scored 5,515 runs at an average of 30.30. Boucher’s 147* against Zimbabwe in 1999 showed his batting prowess. He played 147 Tests and was part of South Africa’s 1998 Champions Trophy win. A 2012 eye injury forced his retirement, ending a stellar career.</p>
+        </div>
+
+        <!-- Sanath Jayasuriya -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Sanath Jayasuriya</h3>
+          <p class="text-lg mb-4">Born on June 30, 1969, in Matara, Sri Lanka, Sanath Jayasuriya revolutionized ODI batting. He scored 13,430 ODI runs, with 28 centuries, and 6,973 Test runs. Jayasuriya’s 340 against India in 1997 is one of the highest Test scores. His explosive 189 in the 2000 Champions Trophy final was pivotal for Sri Lanka. Also taking 323 ODI wickets, he retired in 2011 as a game-changer for limited-overs cricket.</p>
+        </div>
+
+        <!-- Mahela Jayawardene -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Mahela Jayawardene</h3>
+          <p class="text-lg mb-4">Born on May 27, 1977, in Colombo, Sri Lanka, Mahela Jayawardene was a batting artist. He scored 11,814 Test runs at an average of 49.84, with 34 centuries, including 374 against South Africa in 2006, a Sri Lankan record. Jayawardene also scored 12,650 ODI runs. He led Sri Lanka to the 2014 T20 World Cup title. Retiring in 2014, Jayawardene’s elegance and leadership made him a Sri Lankan icon.</p>
+        </div>
+
+        <!-- Aravinda de Silva -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Aravinda de Silva</h3>
+          <p class="text-lg mb-4">Born on October 17, 1965, in Colombo, Sri Lanka, Aravinda de Silva was a match-winner. He scored 6,361 Test runs at an average of 42.97 and 9,284 ODI runs. De Silva’s unbeaten 107 in the 1996 World Cup final against Australia, along with 3/42, won Sri Lanka the title. His 167* in a 1997 Test against Pakistan was equally brilliant. Retiring in 2003, de Silva’s flair and clutch performances are legendary.</p>
+        </div>
+
+        <!-- Brendon McCullum -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Brendon McCullum</h3>
+          <p class="text-lg mb-4">Born on September 27, 1981, in Dunedin, New Zealand, Brendon McCullum was an aggressive batsman. He scored 6,453 Test runs, including a 302 against India in 2014, the first New Zealand Test triple century, and 6,083 ODI runs. McCullum’s 77-ball 123 in the 2012 T20 World Cup is iconic. He led New Zealand to the 2015 World Cup final. Retiring in 2016, McCullum’s fearless approach transformed New Zealand cricket.</p>
+        </div>
+
+        <!-- Kane Williamson -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Kane Williamson</h3>
+          <p class="text-lg mb-4">Born on August 8, 1990, in Tauranga, New Zealand, Kane Williamson is a modern batting great. As of 2025, he has scored over 8,500 Test runs at an average of 55.00, with 29 centuries, and 6,810 ODI runs. Williamson’s 148 in the 2019 World Cup semi-final against South Africa was a masterclass. He led New Zealand to the 2021 World Test Championship title. Williamson’s technique and leadership make him a Kiwi icon.</p>
+        </div>
+
+        <!-- Shakib Al Hasan -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Shakib Al Hasan</h3>
+          <p class="text-lg mb-4">Born on March 24, 1987, in Magura, Bangladesh, Shakib Al Hasan is a world-class all-rounder. As of 2025, he has scored 4,505 Test runs and taken 242 wickets, plus 7,570 ODI runs and 312 wickets. Shakib’s 606 runs in the 2019 World Cup are a record for an all-rounder in a single tournament. He has been ranked the No. 1 all-rounder across formats for years. Shakib’s versatility has elevated Bangladesh cricket.</p>
+        </div>
+
+        <!-- Ben Stokes -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Ben Stokes</h3>
+          <p class="text-lg mb-4">Born on June 4, 1991, in Christchurch, New Zealand, Ben Stokes is England’s dynamic all-rounder. As of 2025, he has scored 6,316 Test runs and taken 197 wickets. Stokes’ unbeaten 84 in the 2019 World Cup final and 135* in the 2019 Ashes at Headingley are iconic. He holds the record for most sixes in a Test innings (11, vs South Africa, 2016). Stokes’ leadership and clutch performances make him a modern great.</p>
+        </div>
+
+        <!-- Joe Root -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Joe Root</h3>
+          <p class="text-lg mb-4">Born on December 30, 1990, in Sheffield, England, Joe Root is a batting mainstay. As of 2025, he has scored over 12,000 Test runs at an average of 50.00, with 34 centuries, and 6,522 ODI runs. Root’s 254 against Pakistan in 2016 is one of England’s highest Test scores. He led England to the 2022 T20 World Cup title. Root’s consistency and adaptability make him one of the best of his generation.</p>
+        </div>
+
+        <!-- Steve Smith -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Steve Smith</h3>
+          <p class="text-lg mb-4">Born on June 2, 1989, in Sydney, Australia, Steve Smith is a batting phenomenon. As of 2025, he has scored over 9,500 Test runs at an average of 56.00, with 32 centuries, including 239 against England in 2017. Smith’s unorthodox technique and 774 runs in the 2019 Ashes are remarkable. He also scored 5,051 ODI runs. Smith’s resilience and run-scoring ability make him a modern Australian great.</p>
+        </div>
+
+        <!-- Babar Azam -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Babar Azam</h3>
+          <p class="text-lg mb-4">Born on October 15, 1994, in Lahore, Pakistan, Babar Azam is a batting prodigy. As of 2025, he has scored 4,113 Test runs at an average of 45.70 and 5,729 ODI runs at 56.17, with 19 ODI centuries. Babar’s 196 against Australia in 2022 saved a Test match. He has been ranked No. 1 in ODIs and T20Is for extended periods. Babar’s elegant strokeplay makes him Pakistan’s modern batting star.</p>
+        </div>
+
+        <!-- Jasprit Bumrah -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Jasprit Bumrah</h3>
+          <p class="text-lg mb-4">Born on December 6, 1993, in Ahmedabad, India, Jasprit Bumrah is a fast-bowling sensation. As of 2025, he has taken 159 Test wickets at an average of 21.00 and 149 ODI wickets. Bumrah’s 6/19 against England in 2022 is one of the best ODI figures by an Indian. His unorthodox action and yorkers are deadly. Ranked No. 1 in Tests in 2024, Bumrah has been pivotal in India’s overseas Test wins.</p>
+        </div>
+
+        <!-- Kagiso Rabada -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Kagiso Rabada</h3>
+          <p class="text-lg mb-4">Born on May 25, 1995, in Johannesburg, South Africa, Kagiso Rabada is a pace spearhead. As of 2025, he has taken 291 Test wickets at an average of 22.50 and 157 ODI wickets. Rabada’s 6/16 against England in 2016 announced his arrival. He has been a consistent performer across formats, often ranked in the ICC top five. Rabada’s pace and aggression make him South Africa’s leading bowler.</p>
+        </div>
+
+        <!-- Pat Cummins -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Pat Cummins</h3>
+          <p class="text-lg mb-4">Born on May 8, 1993, in Sydney, Australia, Pat Cummins is a fast-bowling captain. As of 2025, he has taken 269 Test wickets at an average of 22.53 and 141 ODI wickets. Cummins led Australia to the 2023 World Cup title and the 2021 T20 World Cup. Named ICC Men’s Cricketer of the Year 2023, his 6/23 against Sri Lanka in 2022 was a highlight. Cummins’ leadership and skill define modern Australian cricket.</p>
+        </div>
+
+        <!-- Suryakumar Yadav -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Suryakumar Yadav</h3>
+          <p class="text-lg mb-4">Born on September 14, 1990, in Mumbai, India, Suryakumar Yadav is a T20 batting star. As of 2025, he has scored 2,141 T20I runs at an average of 51.76, with 4 centuries, and is ranked the No. 1 T20I batsman. His 117 off 55 balls against England in 2022 showcased his 360-degree game. Suryakumar’s innovative shots and consistency in the IPL (over 3,000 runs) make him a modern limited-overs great.</p>
+        </div>
+
+        <!-- Shubman Gill -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Shubman Gill</h3>
+          <p class="text-lg mb-4">Born on September 8, 1999, in Punjab, India, Shubman Gill is a rising star. As of 2025, he has scored 2,000 Test runs and 2,271 ODI runs, including a 208 against New Zealand in 2023, the highest ODI score by an Indian at the time. Gill is ranked No. 1 in ODIs by the ICC. His 91 in the 2021 Gabba Test helped India win a historic series. Gill’s technique and composure signal a bright future.</p>
+        </div>
+
+        <!-- Yashasvi Jaiswal -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Yashasvi Jaiswal</h3>
+          <p class="text-lg mb-4">Born on December 28, 2001, in Uttar Pradesh, India, Yashasvi Jaiswal is a young batting prodigy. As of 2025, he has scored 1,500 Test runs, including two double centuries against England in 2024, and holds the record for the fastest IPL 50 (13 balls). Jaiswal’s attacking style and 161 on Test debut in 2023 against West Indies mark him as a future star. His flair across formats has made him a fan favorite.</p>
+        </div>
+
+        <!-- Heinrich Klaasen -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Heinrich Klaasen</h3>
+          <p class="text-lg mb-4">Born on July 30, 1991, in Pretoria, South Africa, Heinrich Klaasen is a white-ball powerhouse. As of 2025, he has scored 2,500 ODI runs at an average of 40.00, with a strike rate of 115. Klaasen’s 174 against Australia in 2023 was a World Cup highlight, and he has the second-highest IPL strike rate ever (171.96). His explosive batting and keeping skills make him a key South African player in limited-overs cricket.</p>
+        </div>
+
+        <!-- Daryl Mitchell -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Daryl Mitchell</h3>
+          <p class="text-lg mb-4">Born on May 20, 1991, in Hamilton, New Zealand, Daryl Mitchell is a versatile batsman. As of 2025, he has scored 1,600 Test runs at an average of 50.00 and 1,500 ODI runs at 52.00. Mitchell’s 130 in the 2023 World Cup semi-final against South Africa was crucial. He also excels in T20s, with a big-money IPL deal in 2024. Mitchell’s adaptability across formats makes him a vital Black Caps player.</p>
+        </div>
+
+        <!-- Rohit Sharma -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Rohit Sharma</h3>
+          <p class="text-lg mb-4">Born on April 30, 1987, in Nagpur, India, Rohit Sharma is a batting maestro. As of 2025, he has scored 4,137 Test runs and 10,709 ODI runs, with 31 ODI centuries, third-most ever. Rohit’s 264 against Sri Lanka in 2014 is the highest ODI score. He led India to the 2024 T20 World Cup title and holds the record for most T20I runs (4,231). Rohit’s timing and leadership make him a modern Indian great.</p>
+        </div>
+        <!-- Angelo Mathews -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Angelo Mathews</h3>
+          <p class="text-lg mb-4">Born on June 2, 1987, in Colombo, Sri Lanka, Angelo Mathews is a versatile all-rounder. As of 2025, he has scored 7,600 Test runs at an average of 44.70 and taken 33 wickets, plus 5,600 ODI runs and 120 wickets. Mathews’ 160 against India in 2010 was a standout innings. He captained Sri Lanka to the 2014 T20 World Cup title. Known for his grit, Mathews remains a key figure in Sri Lankan cricket.</p>
+        </div>
+
+        <!-- David Warner -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">David Warner</h3>
+          <p class="text-lg mb-4">Born on October 27, 1986, in Sydney, Australia, David Warner is a dynamic opener. As of 2025, he has scored 8,786 Test runs with 26 centuries, including 335* against Pakistan in 2019, and 6,932 ODI runs. Warner’s 163* in the 2015 World Cup was a highlight. A key part of Australia’s 2015 World Cup win, his aggressive batting and leadership in T20s make him a modern great.</p>
+        </div>
+
+        <!-- Kevin Pietersen -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Kevin Pietersen</h3>
+          <p class="text-lg mb-4">Born on June 27, 1980, in Pietermaritzburg, South Africa, Kevin Pietersen was a flamboyant English batsman. He scored 8,181 Test runs at an average of 47.28, with 23 centuries, including 227 against Australia in 2010. Pietersen’s switch-hit shots revolutionized batting. A key part of England’s 2010 T20 World Cup win, he retired in 2014, leaving a legacy of audacious strokeplay.</p>
+        </div>
+
+        <!-- Yuvraj Singh -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Yuvraj Singh</h3>
+          <p class="text-lg mb-4">Born on December 12, 1981, in Chandigarh, India, Yuvraj Singh was a dynamic all-rounder. He scored 1,900 Test runs and 8,701 ODI runs, with 14 ODI centuries. Yuvraj’s six sixes in an over during the 2007 T20 World Cup and 362 runs in the 2011 World Cup, earning Player of the Tournament, were iconic. Retiring in 2019, his flair and cancer survivor story inspire millions.</p>
+        </div>
+
+        <!-- Dale Steyn -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Dale Steyn</h3>
+          <p class="text-lg mb-4">Born on June 27, 1983, in Phalaborwa, South Africa, Dale Steyn was a fearsome fast bowler. He took 439 Test wickets at an average of 22.95, with 26 five-wicket hauls, and 196 ODI wickets. Steyn’s 6/8 against Pakistan in 2013 was devastating. Ranked No. 1 in Tests for 263 weeks, he retired in 2019 as one of the greatest pacers ever.</p>
+        </div>
+
+        <!-- Gautam Gambhir -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Gautam Gambhir</h3>
+          <p class="text-lg mb-4">Born on October 14, 1981, in Delhi, India, Gautam Gambhir was a gritty opener. He scored 4,154 Test runs at an average of 41.95 and 5,238 ODI runs. Gambhir’s 97 in the 2011 World Cup final and 206* against Australia in 2008 were clutch performances. Retiring in 2018, his leadership in the IPL and contribution to India’s 2007 T20 World Cup win are notable.</p>
+        </div>
+
+        <!-- Harbhajan Singh -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Harbhajan Singh</h3>
+          <p class="text-lg mb-4">Born on July 3, 1980, in Jalandhar, India, Harbhajan Singh was a prolific off-spinner. He took 417 Test wickets, including 7/48 against South Africa in 2001, and 269 ODI wickets. Harbhajan’s 15 wickets in the 2001 Test series against Australia turned the tide. A key part of India’s 2011 World Cup win, he retired in 2021 as a spin-bowling legend.</p>
+        </div>
+
+        <!-- Andrew Flintoff -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Andrew Flintoff</h3>
+          <p class="text-lg mb-4">Born on December 6, 1977, in Preston, England, Andrew Flintoff was a charismatic all-rounder. He scored 3,845 Test runs and took 226 wickets, with his 5/58 and 87 in the 2005 Ashes being iconic. Flintoff’s heroics helped England win the Ashes after 18 years. Retiring in 2010, his larger-than-life presence and match-winning flair made him an English icon.</p>
+        </div>
+
+        <!-- Michael Clarke -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Michael Clarke</h3>
+          <p class="text-lg mb-4">Born on April 2, 1981, in Sydney, Australia, Michael Clarke was a stylish batsman and captain. He scored 8,643 Test runs at an average of 49.10, with 28 centuries, including 329* against India in 2012. Clarke led Australia to the 2015 World Cup title. Retiring in 2015, his tactical acumen and elegant strokeplay made him one of Australia’s finest.</p>
+        </div>
+
+        <!-- Mohammad Yousuf -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Mohammad Yousuf</h3>
+          <p class="text-lg mb-4">Born on August 27, 1974, in Lahore, Pakistan, Mohammad Yousuf was a prolific batsman. He scored 7,530 Test runs at an average of 52.29 and 9,720 ODI runs. Yousuf’s 1,788 Test runs in 2006, including nine centuries, is a calendar-year record. His elegant 141 in the 1998 Test against Australia was a highlight. Retiring in 2010, Yousuf’s consistency was remarkable.</p>
+        </div>
+
+        <!-- Graeme Pollock -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Graeme Pollock</h3>
+          <p class="text-lg mb-4">Born on February 27, 1944, in Durban, South Africa, Graeme Pollock was a batting genius. He scored 2,256 Test runs in 23 matches at an average of 60.97, with seven centuries, including 274 against Australia in 1970. Pollock’s career was cut short by South Africa’s apartheid ban. Retiring in 1970, his stylish batting remains a benchmark for South African cricket.</p>
+        </div>
+
+        <!-- Barry Richards -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Barry Richards</h3>
+          <p class="text-lg mb-4">Born on July 21, 1945, in Durban, South Africa, Barry Richards was a phenomenal opener. He scored 508 Test runs in four matches at an average of 72.57, with 170 against Australia in 1970. Limited by South Africa’s ban, Richards excelled in first-class cricket, scoring 28,358 runs. Retiring in 1980, his brief Test career showcased his extraordinary talent.</p>
+        </div>
+
+        <!-- Joel Garner -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Joel Garner</h3>
+          <p class="text-lg mb-4">Born on December 16, 1952, in Barbados, Joel Garner, nicknamed ‘Big Bird,’ was a towering West Indian pacer. He took 259 Test wickets at an average of 20.97 and 146 ODI wickets. Garner’s 5/38 in the 1979 World Cup final was pivotal. Standing 6’8”, his bounce and yorkers were unplayable. Retiring in 1987, Garner was a West Indian pace legend.</p>
+        </div>
+
+        <!-- Mike Procter -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Mike Procter</h3>
+          <p class="text-lg mb-4">Born on September 15, 1946, in Durban, South Africa, Mike Procter was a dynamic all-rounder. He took 41 Test wickets at an average of 15.02 in seven matches and scored 226 runs. Procter’s 6/7 against Australia in 1970 was sensational. Limited by apartheid, he excelled in first-class cricket. Retiring in 1976, Procter’s all-round brilliance was unmatched.</p>
+        </div>
+
+        <!-- Allan Donald -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Allan Donald</h3>
+          <p class="text-lg mb-4">Born on October 20, 1966, in Bloemfontein, South Africa, Allan Donald, known as ‘White Lightning,’ was a fearsome pacer. He took 330 Test wickets at an average of 22.25 and 272 ODI wickets. Donald’s 8/71 against Zimbabwe in 1995 was a highlight. His pace and aggression marked South Africa’s return to international cricket. Retiring in 2003, Donald is a fast-bowling icon.</p>
+        </div>
+
+        <!-- Shaun Pollock -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Shaun Pollock</h3>
+          <p class="text-lg mb-4">Born on July 16, 1973, in Port Elizabeth, South Africa, Shaun Pollock was a versatile all-rounder. He took 421 Test wickets at an average of 23.11 and scored 3,781 runs, plus 393 ODI wickets. Pollock’s 6/30 against West Indies in 1998 was a standout. A former captain, he retired in 2008 as one of South Africa’s greatest cricketers.</p>
+        </div>
+
+        <!-- Arjuna Ranatunga -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Arjuna Ranatunga</h3>
+          <p class="text-lg mb-4">Born on December 1, 1963, in Colombo, Sri Lanka, Arjuna Ranatunga was a shrewd captain. He scored 5,105 Test runs and 7,456 ODI runs, leading Sri Lanka to the 1996 World Cup title with 88* in the semi-final against India. Ranatunga’s leadership transformed Sri Lanka into a cricketing powerhouse. Retiring in 2000, his legacy as a tactician endures.</p>
+        </div>
+
+        <!-- Chaminda Vaas -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Chaminda Vaas</h3>
+          <p class="text-lg mb-4">Born on January 27, 1974, in Mattumagala, Sri Lanka, Chaminda Vaas was a swing-bowling maestro. He took 355 Test wickets at an average of 29.58 and 400 ODI wickets, including 8/19 against Zimbabwe in 2001, the best ODI figures ever. Vaas was crucial in Sri Lanka’s 1996 World Cup campaign. Retiring in 2009, he remains a Sri Lankan great.</p>
+        </div>
+
+        <!-- Richard Hadlee -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Sir Richard Hadlee</h3>
+          <p class="text-lg mb-4">Born on July 3, 1951, in Christchurch, New Zealand, Sir Richard Hadlee was a fast-bowling genius. He took 431 Test wickets, a record at the time, at an average of 22.29, and scored 3,124 runs. His 9/52 against Australia in 1985 is one of the best bowling figures ever. Retiring in 1990, Hadlee elevated New Zealand’s cricketing stature.</p>
+        </div>
+
+        <!-- Martin Crowe -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Martin Crowe</h3>
+          <p class="text-lg mb-4">Born on September 22, 1962, in Auckland, New Zealand, Martin Crowe was a batting maestro. He scored 5,444 Test runs at an average of 45.36, with 17 centuries, including 299 against Sri Lanka in 1991. Crowe’s 188 in the 1987 World Cup was a highlight. Retiring in 1995, his elegant batting and leadership made him a Kiwi legend.</p>
+        </div>
+
+        <!-- Ian Chappell -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Ian Chappell</h3>
+          <p class="text-lg mb-4">Born on September 26, 1943, in Adelaide, Australia, Ian Chappell was a gritty batsman and captain. He scored 5,345 Test runs at an average of 42.42, with 14 centuries, and led Australia to 15 Test wins. Chappell’s aggressive leadership in the 1970s laid the foundation for Australia’s dominance. Retiring in 1980, his legacy as a tactician endures.</p>
+        </div>
+
+        <!-- Rod Marsh -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Rod Marsh</h3>
+          <p class="text-lg mb-4">Born on November 4, 1947, in Perth, Australia, Rod Marsh was a legendary wicketkeeper. He scored 3,633 Test runs and effected 355 dismissals, a record at the time. Marsh’s 132 against New Zealand in 1974 was a highlight. A key part of Australia’s 1970s resurgence, he retired in 1984. Marsh passed away in 2022, remembered as a keeper-batsman pioneer.</p>
+        </div>
+
+        <!-- Jeff Thomson -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Jeff Thomson</h3>
+          <p class="text-lg mb-4">Born on August 16, 1950, in Sydney, Australia, Jeff Thomson was a fearsome fast bowler. He took 200 Test wickets at an average of 28.00, with his 6/46 against England in 1974 being iconic. Thomson’s raw pace, alongside Dennis Lillee, terrorized batsmen in the 1970s. Retiring in 1985, his fiery spells remain legendary in Australian cricket.</p>
+        </div>
+
+        <!-- Saleem Malik -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Saleem Malik</h3>
+          <p class="text-lg mb-4">Born on April 16, 1963, in Lahore, Pakistan, Saleem Malik was a stylish batsman. He scored 5,768 Test runs at an average of 43.69, with 15 centuries, and 7,170 ODI runs. Malik’s 237 against Australia in 1982 was a marathon effort. Known for his wristy strokeplay, he retired in 1999 as one of Pakistan’s finest middle-order batsmen.</p>
+        </div>
+
+        <!-- Abdul Qadir -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Abdul Qadir</h3>
+          <p class="text-lg mb-4">Born on September 15, 1955, in Lahore, Pakistan, Abdul Qadir revived leg-spin bowling. He took 236 Test wickets at an average of 32.80, with 9/56 against England in 1987 being his best. Qadir’s 132 ODI wickets included mesmerizing googlies. Retiring in 1993, his flair and variations inspired future spinners like Shane Warne. Qadir passed away in 2019.</p>
+        </div>
+
+        <!-- Viv Richards -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Sir Vivian Richards</h3>
+          <p class="text-lg mb-4">Born on March 7, 1952, in Antigua, Sir Vivian Richards was a batting colossus. He scored 8,540 Test runs at an average of 50.23 and 6,721 ODI runs. Richards’ 189* against England in 1984 is one of the finest ODI innings. Leading the West Indies to the 1979 World Cup, he retired in 1991 as a cricketing icon.</p>
+        </div>
+
+        <!-- Wasim Bari -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Wasim Bari</h3>
+          <p class="text-lg mb-4">Born on March 23, 1948, in Karachi, Pakistan, Wasim Bari was a stellar wicketkeeper. He effected 228 Test dismissals, a Pakistani record at the time, and scored 1,366 runs. Bari’s seven dismissals in a 1979 Test against New Zealand were remarkable. Retiring in 1984, his agility behind the stumps and contribution to Pakistan’s 1970s success were vital.</p>
+        </div>
+
+        <!-- Kapil Dev -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Kapil Dev</h3>
+          <p class="text-lg mb-4">Born on January 6, 1959, in Chandigarh, India, Kapil Dev was India’s greatest all-rounder. He scored 5,248 Test runs and took 434 wickets, plus 3,783 ODI runs and 253 wickets. Kapil’s 175* in the 1983 World Cup against Zimbabwe led India to the title. Retiring in 1994, his legacy as a trailblazer endures.</p>
+        </div>
+
+        <!-- Alec Stewart -->
+        <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Alec Stewart</h3>
+          <p class="text-lg mb-4">Born on April 8, 1963, in Merton, England, Alec Stewart was a versatile wicketkeeper-batsman. He scored 8,463 Test runs at an average of 39.54, with 15 centuries, and effected 277 dismissals. Stewart’s 173 against New Zealand in 1994 was a highlight. Retiring in 2003, his dual role and consistency made him an English stalwart.</p>
+        </div>
+
+
+        <!-- Brian Lara -->
+        <div class="player-card bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl text-gray-800">
+          <h3 class="text-2xl font-semibold mb-4 text-orange-500">Brian Lara</h3>
+          <p class="text-lg mb-4">Born on May 2, 1969, in Trinidad, Brian Lara was a batting legend. He scored 11,953 Test runs, including a record 400* against England in 2004, and 10,405 ODI runs. Lara’s 375 in 1994 was a Test record then. Retiring in 2007, his elegant strokeplay and record-breaking feats made him a West Indian icon.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="bg-green-800 text-white py-6">
+    <div class="container mx-auto px-4 text-center">
+      <p>© 2025 Cricket Fever. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Search Functionality -->
+  <script type="text/javascript">
+    // Cache player cards and their names for faster searching
+    const playerCards = Array.from(document.querySelectorAll('.player-card'));
+    const playerData = playerCards.map(card => ({
+      card: card,
+      name: card.querySelector('h3').textContent.toLowerCase()
+    }));
+
+    // Debounce function to limit search frequency
+    function debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+
+    // Optimized search function for long data
+    const searchPlayers = debounce(function() {
+      const input = document.getElementById('searchInput').value.toLowerCase().trim();
+      let matchCount = 0;
+      const maxDisplay = 50; // Limit to improve performance with long data
+
+      playerData.forEach(({ card, name }) => {
+        const isMatch = input === '' || name.startsWith(input);
+        if (isMatch && matchCount < maxDisplay) {
+          card.classList.remove('hidden');
+          matchCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }, 100);
+
+    // Attach the search function to the input event
+    document.getElementById('searchInput').addEventListener('input', searchPlayers);
+  </script>
+</body>
+</html>
